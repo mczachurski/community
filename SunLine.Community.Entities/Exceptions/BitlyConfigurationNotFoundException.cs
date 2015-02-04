@@ -2,6 +2,7 @@
 
 namespace SunLine.Community.Entities.Exceptions
 {
+    [Serializable]
     public class BitlyConfigurationNotFoundException : Exception
     {
         public BitlyConfigurationNotFoundException() 
