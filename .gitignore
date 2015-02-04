@@ -249,3 +249,5 @@ bin/
 obj/
 *.userprefs
 
+SunLine.Community.Web/PrivateAppSettings.config
+SunLine.Community.Web/PrivateConnectionStrings.config
