@@ -1,0 +1,14 @@
+﻿@model SunLine.Community.Web.ViewModels.Messages.TimelineViewModel
+
+<section class="user-timeline-stories">
+
+    @foreach (var messageViewModel in Model.MessageViewModels)
+    {
+        @Html.Partial("_UserMessageMindPartial", messageViewModel)
+    }
+
+    <div class="timeline-load-button">
+        <button class="btn btn-white btn-block"> <i class="fa-bars"></i> Load More</button>
+    </div>
+        
+</section>

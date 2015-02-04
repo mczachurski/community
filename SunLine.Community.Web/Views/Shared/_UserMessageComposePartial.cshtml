@@ -1,0 +1,24 @@
+﻿
+@using (Ajax.BeginForm("CreateAjax", new { Controller = "Messages" }, new AjaxOptions { HttpMethod = "Post", OnSuccess = "userMessage.OnSuccessCreateMind", 
+    OnFailure = "userMessage.OnFailureCreateMind", OnBegin = "userMessage.OnBeginCreateMind", OnComplete = "userMessage.OnCompleteCreateMind" }, 
+    new { @role = "form", @class = "profile-post-form" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <textarea class="form-control input-lg" id="Mind" name="Mind" placeholder="What's on your mind?" style="overflow: hidden; word-wrap: break-word; height: 66px;"></textarea>
+    <i class="el-edit block-icon"></i>
+
+    <ul class="list-unstyled list-inline form-action-buttons">
+        <li>
+            <button type="button" class="btn btn-unstyled" onclick="userMessage.ToggleImageDropzone()">
+                <i class="el-camera"></i>
+            </button>
+        </li>
+        <li>
+            <span class="char-counter" id="mind-char-counter">200</span>
+        </li>
+    </ul>
+
+    <button type="submit" id="mind-submit" class="btn btn-single btn-xs btn-success post-story-button">Post</button>
+    <div class="dropzone mind-file" style="display: none"></div>
+}

@@ -1,0 +1,108 @@
+﻿@model SunLine.Community.Web.ViewModels.Messages.MessageViewModel
+
+@if (Model.WasMessageCommentedByUser)
+{
+	<div class="col-md-2">
+		<a onclick="userMessage.ToggleCommentForm('@Model.MessageId')" class="liked">
+		    <i class="fa-mail-reply-all tooltip-blue" data-toggle="tooltip" data-placement="top" data-original-title="Comment"></i><span class="actions-number">@Model.AmountOfComments</span>
+		</a>
+	</div>
+}
+else
+{
+	<div class="col-md-2">
+		<a onclick="userMessage.ToggleCommentForm('@Model.MessageId')">
+		    <i class="fa-mail-reply-all tooltip-blue" data-toggle="tooltip" data-placement="top" data-original-title="Comment"></i><span class="actions-number">@Model.AmountOfComments</span>
+		</a>
+	</div>
+}
+
+@if (Model.WasMessageTransmittedByUser)
+{
+	<div class="col-md-2">
+	    <span class="liked">
+	        <i class="fa-retweet tooltip-blue" data-toggle="tooltip" data-placement="top" data-original-title="Transmit"></i><span class="actions-number">@Model.AmountOfTransmitted</span>
+	    </span>
+	</div>
+}
+else if (Model.IsAuthorOfMessage)
+{
+	<div class="col-md-2">
+	    <span style="color: #979898">
+	        <i class="fa-retweet tooltip-blue" data-toggle="tooltip" data-placement="top" data-original-title="Transmit"></i><span class="actions-number">@Model.AmountOfTransmitted</span>
+	    </span>
+	</div>
+}
+else
+{
+	<div class="col-md-2">
+	    <a onclick="userMessage.SendTransmit(this, '@Model.MessageId')">
+	        <i class="fa-retweet tooltip-blue" data-toggle="tooltip" data-placement="top" data-original-title="Transmit"></i><span class="actions-number">@Model.AmountOfTransmitted</span>
+	    </a>
+    </div>
+}
+
+@if (Model.WasMessageQuotedByUser)
+{
+    <div class="col-md-2">
+	    <a onclick="userMessage.SendMindQuote(this, '@Model.MessageId')" data-toggle="modal" data-target="#quotes-modal" class="liked">
+	        <i class="fa-comments tooltip-blue" data-toggle="tooltip" data-placement="top" data-original-title="Quote"></i><span class="actions-number">@Model.AmountOfQuotes</span>
+	    </a>
+    </div>
+}
+else
+{
+    <div class="col-md-2">
+	    <a onclick="userMessage.SendMindQuote(this, '@Model.MessageId')" data-toggle="modal" data-target="#quotes-modal">
+	        <i class="fa-comments-o tooltip-blue" data-toggle="tooltip" data-placement="top" data-original-title="Quote"></i><span class="actions-number">@Model.AmountOfQuotes</span>
+	    </a>
+   	</div>
+}
+
+@if (Model.IsUserFavouriteMessage)
+{
+   	<div class="col-md-2">
+	    <a onclick="userMessage.Favourite(this, '@Model.MessageId')" class="liked">
+	        <i class="fa-star tooltip-blue" data-toggle="tooltip" data-placement="top" data-original-title="Favourite"></i><span class="actions-number">@Model.AmountOfFavourites</span>
+	    </a>
+	</div>
+}
+else
+{
+	<div class="col-md-2">
+	    <a onclick="userMessage.Favourite(this, '@Model.MessageId')">
+	        <i class="fa-star-o tooltip-blue" data-toggle="tooltip" data-placement="top" data-original-title="Favourite"></i><span class="actions-number">@Model.AmountOfFavourites</span>
+	    </a>
+	</div>
+}
+
+@if(Model.IsMassageVisibleOnWatcherTimeline)
+{
+	if(Model.UpdateSortingDateOnNewComment)
+	{
+		<div class="col-md-2">
+		    <a onclick="userMessage.Bubble(this, '@Model.MessageId')" class="liked">
+		        <i class="fa-arrow-up tooltip-blue" data-toggle="tooltip" data-placement="top" data-original-title="Bubble"></i>
+		    </a>
+	    </div>
+	}
+	else
+	{
+	    <div class="col-md-2">
+		    <a onclick="userMessage.Bubble(this, '@Model.MessageId')">
+		        <i class="fa-arrow-up tooltip-blue" data-toggle="tooltip" data-placement="top" data-original-title="Bubble"></i>
+		    </a>
+		</div>
+	}
+}
+
+@if (Model.IsAuthorOfMessage)
+{
+	<div class="col-md-2">
+	    <a onclick="userMessage.SetMessageToDelete('@Model.MessageId')" data-toggle="modal" data-target="#delete-confirm">
+	        <i class="fa-remove tooltip-blue" data-toggle="tooltip" data-placement="top" data-original-title="Delete"></i>
+	    </a>
+    </div>
+}
+
+

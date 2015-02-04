@@ -1,0 +1,26 @@
+﻿@using SunLine.Community.Common
+@using SunLine.Community.Web.Extensions
+@model SunLine.Community.Web.ViewModels.Messages.MessageViewModel
+
+@{
+    string defaultAvatarUrl = Url.Encode(Url.ContentAbsolute("~/Content/images/avatar.png"));
+    string avatarUrl = string.Format("http://www.gravatar.com/avatar/{0}?s=96&d={1}", Model.AuthorGravatarHash, defaultAvatarUrl);
+}
+
+<li>
+    <div class="story-comment">
+        <a href="javascript:" tabindex="0" role="button" class="comment-user-img preview" data-placement="top" data-user-id="@Model.AuthorId">
+            <img src="@avatarUrl" alt="user-img" class="img-circle img-responsive">
+        </a>
+        <div class="story-comment-content">
+            <a href="@Url.Action("Show", "Users", new { @id = Model.AuthorUserName })" class="story-comment-user-name">
+                @Model.AuthorFullName
+            </a>
+            <time>@Model.CreationDate.GetTimeString()</time>
+            <span class="comment-options-links">
+                @Html.Partial("_UserMessageCommentActionsPartial", Model)
+            </span>
+            <p class="story-comment-message">@MvcHtmlString.Create(Model.Mind.GetMindWithLinks())</p>
+        </div>
+    </div>
+</li>

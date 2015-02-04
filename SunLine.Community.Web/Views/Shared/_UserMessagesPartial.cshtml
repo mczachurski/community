@@ -1,0 +1,12 @@
+﻿@model SunLine.Community.Web.ViewModels.Messages.TimelineViewModel
+
+<section class="profile-env panel-center">
+
+    @if (!ViewData.ContainsKey("ShowCompose") || (bool)ViewData["ShowCompose"])
+    {
+        @Html.Partial("_UserMessageComposePartial")
+    }
+
+	@Html.Partial("_UserMessageTimelinePartial", Model)
+
+</section>

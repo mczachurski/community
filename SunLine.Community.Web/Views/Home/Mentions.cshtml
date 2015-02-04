@@ -1,0 +1,35 @@
+﻿@model SunLine.Community.Web.ViewModels.Messages.TimelineViewModel
+
+@{
+    ViewBag.Title = "Mentions";
+    ViewBag.ShowCompose = false;
+}
+
+@Html.Partial("_UserMessagesPartial", Model)
+
+@section Modals {
+    @Html.Partial("_UserMessageModalsPartial")
+	@Html.Partial("_UserMessageGalleryPartial")
+}
+
+@section Head {
+    @Styles.Render("~/Content/blueimp/blueimp")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/usermessage")
+    @Scripts.Render("~/bundles/blueimp")
+
+    <script type="text/javascript">
+        var userMessage = new SunLine.Community.UserMessage();
+        userMessage.Init({
+            TransmitUrl: '@Url.Action("Transmit", "Messages")',
+            FavouriteUrl: '@Url.Action("Favourite", "Messages")',
+            FavouriteCommentUrl: '@Url.Action("FavouriteComment", "Messages")',
+            ToggleConnectionUrl: '@Url.Action("ToggleConnection", "Users")',
+            PopoverUrl: '@Url.Action("Popover", "Users")',
+            BubbleUrl: '@Url.Action("Bubble", "Messages")',
+            DeleteMessageUrl: '@Url.Action("Delete", "Messages")'
+        });
+    </script>
+}

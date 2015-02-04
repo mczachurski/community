@@ -1,0 +1,26 @@
+﻿@model SunLine.Community.Web.ViewModels.Messages.SpeechViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@Html.Partial("_SpeechPartial", Model)
+
+@section Head
+{
+ 	@Styles.Render("~/Content/uikit")
+}
+
+@section Scripts
+{
+	@Scripts.Render("~/bundles/uikit")
+
+	<script type="text/javascript">
+	    $(function () {
+	        $("#charCounter").html(200 - $("#Mind").val().length);
+	        $("#Mind").on("change keyup paste", function () {
+	            $("#charCounter").html(200 - this.value.length);
+	        });
+	    });
+	</script>
+}

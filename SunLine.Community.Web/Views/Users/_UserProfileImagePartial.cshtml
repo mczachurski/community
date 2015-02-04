@@ -1,0 +1,68 @@
+﻿@using SunLine.Community.Web.Extensions
+@model SunLine.Community.Web.ViewModels.Users.ProfileViewModel
+
+@{
+    string defaultAvatarUrl = Url.Encode(Url.ContentAbsolute("~/Content/images/avatar.png"));
+    string avatarUrl = string.Format("http://www.gravatar.com/avatar/{0}?s=240&d={1}", Model.User.GravatarHash.ToLower(), defaultAvatarUrl);
+    string joinedDate = Model.User.CreationDate.ToString("y");
+
+    string webAddressClean = Model.User.WebAddress != null ? Model.User.WebAddress.Replace("http://", "").Replace("https://", "") : string.Empty;
+}
+
+<div class="user-info-sidebar">
+    <span class="user-image">
+        <img src="@avatarUrl" alt="user-img" class="img-cirlce img-responsive img-thumbnail">
+    </span>
+    <span class="user-full-name">@Model.User.FullName</span>
+    <span class="user-name">
+        <strong>@@@Model.User.UserName</strong>
+        @if (Model.UserObservesYou)
+        {
+            <span class="label label-success">Observes you</span>
+        }
+    </span>
+	@if(!string.IsNullOrWhiteSpace(Model.User.Motto))
+	{
+		<hr>
+	    <span class="user-motto">
+	        @Model.User.Motto
+	    </span>
+	}
+    <hr>
+	<ul class="list-unstyled user-info-list"> 
+		@if(!string.IsNullOrWhiteSpace(Model.User.Location))
+		{
+			<li><i class="fa-home"></i> @Model.User.Location</li> 
+		}
+		@if(!string.IsNullOrWhiteSpace(Model.User.WebAddress))
+		{
+			<li><i class="fa-link"></i> <a href="@Model.User.WebAddress">@webAddressClean</a></li> 
+		}
+		<li><i class="fa-clock-o"></i> Joined @joinedDate</li> 
+	</ul>
+
+    @if (!Model.IsThisSameUser)
+    {
+        if (Model.YouObserveUser)
+        {
+            <button type="button" onclick="userConnection.ToggleConnection(this, '@Model.User.Id')" class="btn btn-danger btn-block text-left">
+                <span>Stop observing</span>
+                <i class="fa-remove pull-right"></i>
+            </button>
+        }
+        else
+        {
+            <button type="button" onclick="userConnection.ToggleConnection(this, '@Model.User.Id')" class="btn btn-success btn-block text-left">
+                <span>Start observing</span>
+                <i class="fa-check pull-right"></i>
+            </button>
+        }
+    }
+    else
+    {
+        <a href="@Url.Action("Edit", "Users")" class="btn btn-blue btn-block text-left">
+            Edit profile
+            <i class="fa-edit pull-right"></i>
+        </a>
+    }
+</div>

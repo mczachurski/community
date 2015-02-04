@@ -1,0 +1,101 @@
+﻿@model SunLine.Community.Web.ViewModels.Manage.IndexViewModel
+@{
+    ViewBag.Title = "Manage";
+}
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-default panel-center">
+            <div class="panel-heading">
+                <h3 class="panel-title">Change password</h3>
+            </div>
+
+            <div class="panel-body">
+                @using (Html.BeginForm("ChangePassword", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, string.Empty, new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.OldPassword, new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            @Html.PasswordFor(m => m.OldPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.OldPassword, string.Empty, new { @class = "validate-has-error" })
+                        </div>
+                    </div>
+                    <div class="form-group-separator"></div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.NewPassword, new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            @Html.PasswordFor(m => m.NewPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.NewPassword, string.Empty, new { @class = "validate-has-error" })
+                        </div>
+                    </div>
+                    <div class="form-group-separator"></div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.ConfirmPassword, string.Empty, new { @class = "validate-has-error" })
+                        </div>
+                    </div>
+                                            
+                    <div class="form-group">
+                        <div class="col-md-offset-4 col-md-8">
+                            <input type="submit" class="btn btn-info" value="Change password" />
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-default panel-center">
+            <div class="panel-heading">
+                <h3 class="panel-title">Account state</h3>
+            </div>
+
+            <div class="panel-body">
+				<form role="form" class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                        	@if(Model.IsAccountEnabled)
+                        	{
+                            	<button type="submit" class="btn btn-orange">Disable account</button>
+                            }
+                            else
+                            {
+                            	<button type="submit" class="btn btn-success">Enable account</button>
+                            }
+                        </div>
+                        @if(Model.IsAccountEnabled)
+                        {
+							<span class="col-md-9">When you turn off your account, all your minds are still visible in the system. You will not be able to post new minds.</span>
+						}
+						else
+						{
+							<span class="col-md-9">When you turn on your account you will be able to post new minds.</span>
+						}
+                    </div>
+                    <div class="form-group-separator"></div>
+                                         
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-danger">Delete account</button>
+                        </div>
+						<span class="col-md-9">The operation is irreversible. After removing the account, all your messages will be deleted.</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

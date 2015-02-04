@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{53DC3ED6-8016-44AA-8A85-039D01665A0C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SunLine.Community.Services</RootNamespace>
+    <AssemblyName>SunLine.Community.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>1ab70954</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BitlyDotNET">
+      <HintPath>..\packages\Bitly.Net.0.0.6.0\lib\BitlyDotNET.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Store.Azure">
+      <HintPath>..\packages\Lucene.Net.Store.Azure.2.0.4937.26631\lib\net40\Lucene.Net.Store.Azure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.WindowsAzure.Storage">
+      <HintPath>..\packages\WindowsAzure.Storage.4.3.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.3\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.3\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.3\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.2.0.3\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Spatial">
+      <HintPath>..\packages\System.Spatial.5.6.3\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\GlobalSuppressions.cs">
+      <Link>GlobalSuppressions.cs</Link>
+    </Compile>
+    <Compile Include="..\SunLine.Community.Web\Properties\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="BusinessLogicAttribute.cs" />
+    <Compile Include="Core\EmailService.cs" />
+    <Compile Include="Core\ErrorService.cs" />
+    <Compile Include="Core\IMessageUrlService.cs" />
+    <Compile Include="Core\MessageHashtagService.cs" />
+    <Compile Include="Core\IEmailService.cs" />
+    <Compile Include="Core\IErrorService.cs" />
+    <Compile Include="Core\IMessageHashtagService.cs" />
+    <Compile Include="Core\IMessageMentionService.cs" />
+    <Compile Include="Core\IMessageService.cs" />
+    <Compile Include="Core\ISettingService.cs" />
+    <Compile Include="Core\IUserConnectionService.cs" />
+    <Compile Include="Core\IUserMessageService.cs" />
+    <Compile Include="Core\IUserService.cs" />
+    <Compile Include="Core\MessageMentionService.cs" />
+    <Compile Include="Core\MessageService.cs" />
+    <Compile Include="Core\MessageUrlService.cs" />
+    <Compile Include="Core\SettingService.cs" />
+    <Compile Include="Core\UserConnectionService.cs" />
+    <Compile Include="Core\UserMessageService.cs" />
+    <Compile Include="Core\UserService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Dict\ILanguageService.cs" />
+    <Compile Include="Dict\LanguageService.cs" />
+    <Compile Include="DatabaseSetup.cs" />
+    <Compile Include="Dict\CategoryService.cs" />
+    <Compile Include="Dict\ICategoryService.cs" />
+    <Compile Include="Core\IUserCategoryService.cs" />
+    <Compile Include="Core\UserCategoryService.cs" />
+    <Compile Include="Dict\ICategoryFavouriteLevelService.cs" />
+    <Compile Include="Dict\CategoryFavouriteLevelService.cs" />
+    <Compile Include="Dict\IMessageStateService.cs" />
+    <Compile Include="Dict\MessageStateService.cs" />
+    <Compile Include="Core\MessageFavouriteService.cs" />
+    <Compile Include="Core\IMessageFavouriteService.cs" />
+    <Compile Include="Search\ISearchService.cs" />
+    <Compile Include="Search\SearchService.cs" />
+    <Compile Include="Azure\IAzureFileService.cs" />
+    <Compile Include="Azure\AzureFileService.cs" />
+    <Compile Include="Core\IFileService.cs" />
+    <Compile Include="Core\FileService.cs" />
+    <Compile Include="Infrastructure\DatabaseTransactionService.cs" />
+    <Compile Include="Infrastructure\IDatabaseTransactionService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SunLine.Community.Common\SunLine.Community.Common.csproj">
+      <Project>{AEB7404C-BE47-4A36-9241-7364FDE410CD}</Project>
+      <Name>SunLine.Community.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SunLine.Community.Entities\SunLine.Community.Entities.csproj">
+      <Project>{3808706A-D8E2-43C7-A265-B9377C87FB33}</Project>
+      <Name>SunLine.Community.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SunLine.Community.Repositories\SunLine.Community.Repositories.csproj">
+      <Project>{D7308DA3-05FD-408E-851C-266E6409E913}</Project>
+      <Name>SunLine.Community.Repositories</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup />
+  <Import Project="..\packages\GitVersionTask.2.0.0\Build\GitVersionTask.targets" Condition="'$(Configuration)|$(Platform)' != 'Debug|AnyCPU' And Exists('..\packages\GitVersionTask.2.0.0\Build\GitVersionTask.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\GitVersionTask.2.0.0\Build\GitVersionTask.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\GitVersionTask.2.0.0\Build\GitVersionTask.targets'))" />
+  </Target>
+  <ItemGroup />
+</Project>

@@ -1,0 +1,62 @@
+﻿@using SunLine.Community.Web.Extensions
+@model SunLine.Community.Web.ViewModels.Users.PopoverViewModel
+
+@{
+    Layout = null;
+    string defaultAvatarUrl = Url.Encode(Url.ContentAbsolute("~/Content/images/avatar.png"));
+    string avatarUrl = string.Format("http://www.gravatar.com/avatar/{0}?s=160&d={1}", Model.User.GravatarHash.ToLower(), defaultAvatarUrl);
+}
+
+<div>
+    <div class="popover-user-profile">
+        <a href="@Url.Action("Show", "Users", new { @id = @Model.User.UserName })" class="user-image">
+            <img src="@avatarUrl" alt="user-img" class="img-cirlce img-responsive img-thumbnail">
+        </a>
+        <a href="@Url.Action("Show", "Users", new { @id = @Model.User.UserName })" class="user-full-name">@Model.User.FullName</a>
+        <span class="user-name">
+            <strong>@@@Model.User.UserName</strong> 
+            @if (Model.UserObservesYou)
+            {
+                <span class="label label-success">Observes you</span>
+            }
+        </span>
+        <span class="user-motto">
+            @Model.User.Motto
+        </span>
+        <hr>
+        <ul class="list-unstyled user-friends-count">
+            <li class="text-center">
+                <span>@Model.AmountOfAllUserObservers</span>
+                observers
+            </li>
+            <li class="text-center">
+                <span>@Model.AmountOfAllObservedByUser</span>
+                observing
+            </li>
+        </ul>
+        @if (!Model.IsThisSameUser)
+        {
+            if (Model.YouObserveUser)
+            {
+                <button type="button" onclick="userMessage.ToggleConnection(this, '@Model.User.Id')" class="btn btn-danger btn-block text-left">
+                    Stop observing
+                    <i class="fa-remove pull-right"></i>
+                </button>
+            }
+            else
+            {
+                <button type="button" onclick="userMessage.ToggleConnection(this, '@Model.User.Id')" class="btn btn-success btn-block text-left">
+                    Start observing
+                    <i class="fa-check pull-right"></i>
+                </button>
+            }
+        }
+        else
+        {
+            <a href="@Url.Action("Edit", "Users")" class="btn btn-blue btn-block text-left" style="color: white">
+                Edit profile
+                <i class="fa-edit pull-right"></i>
+            </a>
+        }
+    </div>
+</div>

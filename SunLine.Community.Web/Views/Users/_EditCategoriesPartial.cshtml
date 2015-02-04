@@ -1,0 +1,56 @@
+﻿@using System.Linq
+@model SunLine.Community.Web.ViewModels.Users.EditProfileViewModel
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Define automatic categories</h3>
+    </div>
+
+    <div class="panel-body">
+        @using(Ajax.BeginForm("SaveCategoryAjax", new { Controller = "Users" }, new AjaxOptions { HttpMethod = "Post", OnSuccess = "editProfile.OnSuccessSaveCategories", 
+        	OnFailure = "editProfile.OnFailureSaveCategories", OnBegin = "editProfile.OnBeginSaveCategories", OnComplete = "editProfile.OnCompleteSaveCategories" }, 
+        	new { @role = "form", @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, string.Empty, new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.UserMessageLanguages, new { @class = "col-md-4 control-label" })
+                <div class="col-md-8">
+                    <select class="form-control select2" id="languages" name="languages" multiple>
+                        @foreach (var language in Model.Languages)
+                        {
+                            var isSelected = Model.UserMessageLanguages.Any(x => x.Id == language.Id);
+                            <option value="@language.Id" @(isSelected ? " selected='selected'" : string.Empty)>@language.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            for(int index = 0; index < Model.CategoryViewModels.Count; index++)
+            {
+            	var categoryLevel = Model.CategoryViewModels[index];
+            	@Html.Hidden("levels[" + index + "].LevelId", categoryLevel.LevelId)
+				<div class="form-group-separator"></div>
+	            <div class="form-group">
+	                @Html.Label(categoryLevel.LevelName, new { @class = "col-md-4 control-label" })
+	                <div class="col-md-8">
+	                	<select class="form-control select2" id="levels_@(index)__SelectedCatagories" name="levels[@index].SelectedCatagories" multiple>
+	                		@foreach(var category in Model.Categories)
+	                		{
+	                			<option value="@category.Id"@(categoryLevel.SelectedCatagories.Contains(category.Id) ? " selected='selected'" : string.Empty)>@category.Name</option>
+	                		}
+	                	</select>
+	                </div>
+	            </div>
+			}
+			                
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-8">
+                    <input type="submit" class="btn btn-info" id="save-category" value="Save categories" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+	

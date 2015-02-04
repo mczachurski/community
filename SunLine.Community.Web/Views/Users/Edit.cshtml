@@ -1,0 +1,67 @@
+﻿@model SunLine.Community.Web.ViewModels.Users.EditProfileViewModel
+@{
+    ViewBag.Title = "Edit profile";
+}
+
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+		<div class="tabs-vertical-env tabs-vertical-bordered center-block" style="max-width: 960px">
+			<ul class="nav tabs-vertical" style="padding-top: 24px;"> 
+				<li class="active">
+					<a href="#profile" data-toggle="tab" aria-expanded="true">Profile</a>
+				</li> 
+				<li class="">
+					<a href="#categories" data-toggle="tab" aria-expanded="false">Categories</a>
+				</li> 
+				<li class="">
+					<a href="#cover" data-toggle="tab" aria-expanded="false">Cover</a>
+				</li> 
+			</ul> 
+		
+			<div class="tab-content"> 
+				<div class="tab-pane active" id="profile">   
+					@Html.Partial("_EditMainDataPartial", Model)
+        		</div>  
+        		<div class="tab-pane" id="categories"> 
+					@Html.Partial("_EditCategoriesPartial", Model) 
+        		</div> 
+        		<div class="tab-pane" id="cover"> 
+        			@Html.Partial("_EditCoverPartial", Model)
+        		</div> 
+        	</div> 
+		</div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/editprofile")
+    @Styles.Render("~/Scripts/select2/select2")
+    @Scripts.Render("~/bundles/select2")
+
+    <script type="text/javascript">
+        var editProfile = new SunLine.Community.EditProfile();
+        editProfile.Init();
+
+        $(function() {
+			$("#coverPatternName").select2({
+				placeholder: 'Select cover template',
+				allowClear: true,
+				minimumResultsForSearch: -1,
+				formatResult: function(cover)
+				{
+					return '<div style="background:url(@Url.Content("~/Content/images/covers/")' + cover.id + ') no-repeat center center;background-size:100%;display:inline-block;position:relative;width:40px;height:40px;margin-right: 10px;top:2px;"></div>' 
+						+ cover.text;
+				}
+			}).on('select2-open', function() {
+				// Adding Custom Scrollbar
+				$(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
+			})
+			.on("change", function(e) {
+				var imageSource = '@Url.Content("~/Content/images/covers/")' + e.val;
+	          	$("#selected-cover").attr("src", imageSource);
+	        });
+		});
+
+    </script>
+}    

@@ -1,0 +1,50 @@
+﻿@using SunLine.Community.Web.Extensions
+@model SunLine.Community.Web.ViewModels.Users.ProfileViewModel
+
+@{
+    ViewBag.ShowCompose = false;
+
+    string coverUrl = Url.Content("~/Content/images/covers/p00033.png");
+    string coverStyle = "profile-cover-pattern";
+	if(Model.File != null)
+	{
+		coverUrl = Model.File.FileUrl;
+		coverStyle = "profile-cover-image";
+	}
+	else if(!string.IsNullOrWhiteSpace(Model.CoverPatternName))
+	{
+		coverUrl = Url.Content("~/Content/images/covers/" + Model.CoverPatternName);
+	}
+}
+
+<div class="profile-cover @coverStyle" style="background-image:url('@coverUrl')"></div>
+
+<section class="profile-env center-block">
+    <div class="row">
+        <div class="col-sm-3 user-info-placeholder">
+        	@Html.Partial("_UserProfileImagePartial", Model)
+        </div>
+		<div class="col-sm-9">
+			@Html.Partial("_UserProfileActionsPartial", Model)
+
+			<div id="user-timeline" style="@(Model.TimelineViewModel == null ? "display: none" : string.Empty)">
+				@if(Model.TimelineViewModel != null)
+				{
+					@Html.Partial("_UserMessageTimelinePartial", Model.TimelineViewModel)
+				}
+			</div>
+			<div id="user-observers" style="@(Model.Observers == null ? "display: none" : string.Empty)">
+				@if(Model.Observers != null)
+				{
+					@Html.Partial("_UserListPartial", Model.Observers)
+				}
+			</div>
+			<div id="user-observing" style="@(Model.Observing == null ? "display: none" : string.Empty)">
+				@if(Model.Observing != null)
+				{
+					@Html.Partial("_UserListPartial", Model.Observing)
+				}
+			</div>
+		</div>
+    </div>
+</section>

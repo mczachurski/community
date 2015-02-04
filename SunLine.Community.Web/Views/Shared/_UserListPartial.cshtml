@@ -1,0 +1,74 @@
+﻿@using SunLine.Community.Web.Extensions
+@model SunLine.Community.Web.ViewModels.Users.UsersViewModel
+
+@{
+	string defaultAvatarUrl = Url.Encode(Url.ContentAbsolute("~/Content/images/avatar.png"));
+}
+
+<div class="user-list-sidebar">
+
+	<div class="row">
+	@foreach(var item in Model.Users)
+	{
+    	string avatarUrl = string.Format("http://www.gravatar.com/avatar/{0}?s=152&d={1}", item.GravatarHash.ToLower(), defaultAvatarUrl);
+	    string coverUrl = Url.Content("~/Content/images/covers/p00033.png");
+	    string coverStyle = string.Empty;
+		if(item.File != null)
+		{
+			coverUrl = item.File.ThumbnailUrl;
+			coverStyle = "background-size: cover;";
+		}
+		else if(!string.IsNullOrWhiteSpace(item.CoverPatternName))
+		{
+			coverUrl = Url.Content("~/Content/images/covers/" + item.CoverPatternName);
+		}
+
+		<div class="col-md-4">
+			<div class="user-panel">
+				<div class="user-panel-heading" style="background-image:url('@coverUrl');@coverStyle"> 
+					<img src="@avatarUrl" alt="user-img" class="img-responsive img-circle">
+				</div> 
+				<div class="user-panel-body">
+					<span class="full-name"><a href="@Url.Action("Show", "Users", new { @id = item.UserName })">@item.FullName</a></span>
+					<span class="user-name">@@@item.UserName @(item.IsUserObservingWatcher ? MvcHtmlString.Create("<span class='label label-success'>Observes you</span>") : MvcHtmlString.Empty)</span>
+					<p>
+						@item.Motto
+					</p>
+
+					@if (!item.IsThisSameUser)
+					{
+						if(item.IsObservesByWatcher)
+						{
+							<button type="button" class="btn btn-danger btn-block text-left" onclick="userConnection.ToggleConnection(this, '@item.Id', 'btn-white')">
+	                			<span>Stop observing</span>
+	                			<i class="pull-right fa-remove"></i>
+	            			</button>
+						}
+						else
+						{
+							<button type="button" class="btn btn-white btn-block text-left" onclick="userConnection.ToggleConnection(this, '@item.Id', 'btn-white')">
+	                			<span>Start observing</span>
+	                			<i class="fa-check pull-right"></i>
+	            			</button>
+						}
+					}
+					else
+					{
+			            <a href="@Url.Action("Edit", "Users")" class="btn btn-blue btn-block text-left" style="color: white">
+			                Edit profile
+			                <i class="fa-edit pull-right"></i>
+			            </a>
+					}
+				</div> 
+			</div>
+		</div>
+	}
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<button class="btn btn-white btn-block"> <i class="fa-bars"></i> Load More</button>
+		</div>
+	</div>
+
+</div>

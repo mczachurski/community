@@ -1,0 +1,37 @@
+﻿@model SunLine.Community.Web.ViewModels.Users.ProfileViewModel
+
+<div class="row">
+	<div class="col-sm-4 @(Model.TimelineViewModel != null ? "active-link" : string.Empty)">
+		<div class="xe-widget xe-counter" data-count=".num" data-from="0" data-to="@Model.AmountOfAllMessages" data-duration="3" data-easing="true" onclick="userProfile.ShowTimeline(this);">
+			<div class="xe-icon">
+				<i class="linecons-lightbulb"></i> 
+			</div> 
+			<div class="xe-label"> 
+				<strong class="num">@Model.AmountOfAllMessages</strong> 
+				<span>Minds</span> 
+			</div> 
+		</div> 
+	</div> 
+	<div class="col-sm-4 @(Model.Observers != null ? "active-link" : string.Empty)"> 
+		<div class="xe-widget xe-counter xe-counter-blue" data-count=".num" data-from="0" data-to="@Model.AmountOfAllUserObservers" data-duration="3" data-easing="true" onclick="userProfile.ShowObservers(this);">
+			<div class="xe-icon"> 
+				<i class="linecons-eye"></i>
+			</div> 
+			<div class="xe-label"> 
+				<strong class="num">@Model.AmountOfAllUserObservers</strong>
+				<span>Observers</span> 
+			</div> 
+		</div> 
+	</div> 
+	<div class="col-sm-4 @(Model.Observing != null ? "active-link" : string.Empty)"> 
+		<div class="xe-widget xe-counter xe-counter-info" data-count=".num" data-from="0" data-to="@Model.AmountOfAllObservedByUser" data-duration="3" data-easing="true" onclick="userProfile.ShowObserving(this);"> 
+			<div class="xe-icon"> 
+				<i class="linecons-user"></i> 
+			</div> 
+			<div class="xe-label"> 
+				<strong class="num">@Model.AmountOfAllObservedByUser</strong> 
+				<span>Observing</span> 
+			</div> 
+		</div> 
+	</div>  
+</div>

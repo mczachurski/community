@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D7308DA3-05FD-408E-851C-266E6409E913}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SunLine.Community.Repositories</RootNamespace>
+    <AssemblyName>SunLine.Community.Repositories</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>56804092</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\GlobalSuppressions.cs">
+      <Link>GlobalSuppressions.cs</Link>
+    </Compile>
+    <Compile Include="..\SunLine.Community.Web\Properties\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Core\ErrorRepository.cs" />
+    <Compile Include="Core\FileRepository.cs" />
+    <Compile Include="Core\HashtagRepository.cs" />
+    <Compile Include="Core\IErrorRepository.cs" />
+    <Compile Include="Core\MessageFavouriteRepository.cs" />
+    <Compile Include="Core\IMessageFavouriteRepository.cs" />
+    <Compile Include="Core\IFileRepository.cs" />
+    <Compile Include="Core\IHashtagRepository.cs" />
+    <Compile Include="Core\IMessageHashtagRepository.cs" />
+    <Compile Include="Core\IMessageMentionRepository.cs" />
+    <Compile Include="Core\IMessageRepository.cs" />
+    <Compile Include="Core\IMessageUrlRepository.cs" />
+    <Compile Include="Core\ISettingRepository.cs" />
+    <Compile Include="Core\IUserConnectionRepository.cs" />
+    <Compile Include="Core\IUserMessageRepository.cs" />
+    <Compile Include="Core\IUserRepository.cs" />
+    <Compile Include="Core\MessageHashtagRepository.cs" />
+    <Compile Include="Core\MessageMentionRepository.cs" />
+    <Compile Include="Core\MessageRepository.cs" />
+    <Compile Include="Core\MessageUrlRepository.cs" />
+    <Compile Include="Core\SettingRepository.cs" />
+    <Compile Include="Core\UserConnectionRepository.cs" />
+    <Compile Include="Core\UserMessageRepository.cs" />
+    <Compile Include="Core\UserRepository.cs" />
+    <Compile Include="DatabaseContext.cs" />
+    <Compile Include="Dict\FileTypeRepository.cs" />
+    <Compile Include="Dict\IFileTypeRepository.cs" />
+    <Compile Include="Dict\ILanguageRepository.cs" />
+    <Compile Include="Dict\ICategoryRepository.cs" />
+    <Compile Include="Dict\IMessageStateRepository.cs" />
+    <Compile Include="Dict\IUserMessageCreationModeRepository.cs" />
+    <Compile Include="Dict\IUserMessageStateRepository.cs" />
+    <Compile Include="Dict\LanguageRepository.cs" />
+    <Compile Include="Dict\CategoryRepository.cs" />
+    <Compile Include="Dict\MessageStateRepository.cs" />
+    <Compile Include="Dict\UserMessageCreationModeRepository.cs" />
+    <Compile Include="Dict\UserMessageStateRepository.cs" />
+    <Compile Include="ExHistoryContext.cs" />
+    <Compile Include="IDatabaseContext.cs" />
+    <Compile Include="Infrastructure\DbSession.cs" />
+    <Compile Include="Infrastructure\EntityRepository.cs" />
+    <Compile Include="Infrastructure\IDbSession.cs" />
+    <Compile Include="Infrastructure\IEntityRepository.cs" />
+    <Compile Include="Infrastructure\IUnitOfWork.cs" />
+    <Compile Include="Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Migrations\201412030842094_AddInitial.cs" />
+    <Compile Include="Migrations\201412030842094_AddInitial.Designer.cs">
+      <DependentUpon>201412030842094_AddInitial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412030924366_RenameComment.cs" />
+    <Compile Include="Migrations\201412030924366_RenameComment.Designer.cs">
+      <DependentUpon>201412030924366_RenameComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412040615339_AddHaveMentionInComments.cs" />
+    <Compile Include="Migrations\201412040615339_AddHaveMentionInComments.Designer.cs">
+      <DependentUpon>201412040615339_AddHaveMentionInComments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412041103039_MoveFavouriteMessageToNewTable.cs" />
+    <Compile Include="Migrations\201412041103039_MoveFavouriteMessageToNewTable.Designer.cs">
+      <DependentUpon>201412041103039_MoveFavouriteMessageToNewTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412051014173_AddQutesMessages.cs" />
+    <Compile Include="Migrations\201412051014173_AddQutesMessages.Designer.cs">
+      <DependentUpon>201412051014173_AddQutesMessages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412051704286_AddNumberOfQuotes.cs" />
+    <Compile Include="Migrations\201412051704286_AddNumberOfQuotes.Designer.cs">
+      <DependentUpon>201412051704286_AddNumberOfQuotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412060827165_ChangeNameOdRelationWithQuotedMessage.cs" />
+    <Compile Include="Migrations\201412060827165_ChangeNameOdRelationWithQuotedMessage.Designer.cs">
+      <DependentUpon>201412060827165_ChangeNameOdRelationWithQuotedMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412131101391_AddUniqueUserMessage.cs" />
+    <Compile Include="Migrations\201412131101391_AddUniqueUserMessage.Designer.cs">
+      <DependentUpon>201412131101391_AddUniqueUserMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412131128319_AddUniqueUserConnection.cs" />
+    <Compile Include="Migrations\201412131128319_AddUniqueUserConnection.Designer.cs">
+      <DependentUpon>201412131128319_AddUniqueUserConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412141147416_AddMentionsIndexes.cs" />
+    <Compile Include="Migrations\201412141147416_AddMentionsIndexes.Designer.cs">
+      <DependentUpon>201412141147416_AddMentionsIndexes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412231805453_RenameFavouriteTable.cs" />
+    <Compile Include="Migrations\201412231805453_RenameFavouriteTable.Designer.cs">
+      <DependentUpon>201412231805453_RenameFavouriteTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412231850582_AddSortingDateToUserMessage.cs" />
+    <Compile Include="Migrations\201412231850582_AddSortingDateToUserMessage.Designer.cs">
+      <DependentUpon>201412231850582_AddSortingDateToUserMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412271210040_AddIndexToUserMessage.cs" />
+    <Compile Include="Migrations\201412271210040_AddIndexToUserMessage.Designer.cs">
+      <DependentUpon>201412271210040_AddIndexToUserMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412271823035_AddAmountOfComments.cs" />
+    <Compile Include="Migrations\201412271823035_AddAmountOfComments.Designer.cs">
+      <DependentUpon>201412271823035_AddAmountOfComments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412290815281_AddCoverPatternName.cs" />
+    <Compile Include="Migrations\201412290815281_AddCoverPatternName.Designer.cs">
+      <DependentUpon>201412290815281_AddCoverPatternName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412311015356_AddMottoToUser.cs" />
+    <Compile Include="Migrations\201412311015356_AddMottoToUser.Designer.cs">
+      <DependentUpon>201412311015356_AddMottoToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501021802395_AddCategoryLevel.cs" />
+    <Compile Include="Migrations\201501021802395_AddCategoryLevel.Designer.cs">
+      <DependentUpon>201501021802395_AddCategoryLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501101000367_AddStoredProcedures.cs" />
+    <Compile Include="Migrations\201501101000367_AddStoredProcedures.Designer.cs">
+      <DependentUpon>201501101000367_AddStoredProcedures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501111815375_ChangeFileEntity.cs" />
+    <Compile Include="Migrations\201501111815375_ChangeFileEntity.Designer.cs">
+      <DependentUpon>201501111815375_ChangeFileEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501141905468_AddDeleteMessageProcedure.cs" />
+    <Compile Include="Migrations\201501141905468_AddDeleteMessageProcedure.Designer.cs">
+      <DependentUpon>201501141905468_AddDeleteMessageProcedure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\TableData\Core\SettingTable.cs" />
+    <Compile Include="Migrations\TableData\Dict\FileTypeTable.cs" />
+    <Compile Include="Migrations\TableData\Dict\LanguageTable.cs" />
+    <Compile Include="Migrations\TableData\Dict\MessageStateTable.cs" />
+    <Compile Include="Migrations\TableData\Dict\UserMessageCreationModeTable.cs" />
+    <Compile Include="Migrations\TableData\Dict\UserMessageStateTable.cs" />
+    <Compile Include="ModelConfiguration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Migrations\TableData\Dict\CategoryFavouriteLevelTable.cs" />
+    <Compile Include="Dict\ICategoryFavouriteLevelRepository.cs" />
+    <Compile Include="Dict\CategoryFavouriteLevelRepository.cs" />
+    <Compile Include="Migrations\TableData\Dict\CategoryTable.cs" />
+    <Compile Include="Core\IUserCategoryRepository.cs" />
+    <Compile Include="Core\UserCategoryRepository.cs" />
+    <Compile Include="Migrations\EmbededResourceHelper.cs" />
+    <Compile Include="Infrastructure\DatabaseTransaction.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SunLine.Community.Common\SunLine.Community.Common.csproj">
+      <Project>{AEB7404C-BE47-4A36-9241-7364FDE410CD}</Project>
+      <Name>SunLine.Community.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SunLine.Community.Entities\SunLine.Community.Entities.csproj">
+      <Project>{3808706A-D8E2-43C7-A265-B9377C87FB33}</Project>
+      <Name>SunLine.Community.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201412030842094_AddInitial.resx">
+      <DependentUpon>201412030842094_AddInitial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412030924366_RenameComment.resx">
+      <DependentUpon>201412030924366_RenameComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412040615339_AddHaveMentionInComments.resx">
+      <DependentUpon>201412040615339_AddHaveMentionInComments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412041103039_MoveFavouriteMessageToNewTable.resx">
+      <DependentUpon>201412041103039_MoveFavouriteMessageToNewTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412051014173_AddQutesMessages.resx">
+      <DependentUpon>201412051014173_AddQutesMessages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412051704286_AddNumberOfQuotes.resx">
+      <DependentUpon>201412051704286_AddNumberOfQuotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412060827165_ChangeNameOdRelationWithQuotedMessage.resx">
+      <DependentUpon>201412060827165_ChangeNameOdRelationWithQuotedMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412131101391_AddUniqueUserMessage.resx">
+      <DependentUpon>201412131101391_AddUniqueUserMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412131128319_AddUniqueUserConnection.resx">
+      <DependentUpon>201412131128319_AddUniqueUserConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412141147416_AddMentionsIndexes.resx">
+      <DependentUpon>201412141147416_AddMentionsIndexes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412231805453_RenameFavouriteTable.resx">
+      <DependentUpon>201412231805453_RenameFavouriteTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412231850582_AddSortingDateToUserMessage.resx">
+      <DependentUpon>201412231850582_AddSortingDateToUserMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412271210040_AddIndexToUserMessage.resx">
+      <DependentUpon>201412271210040_AddIndexToUserMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412271823035_AddAmountOfComments.resx">
+      <DependentUpon>201412271823035_AddAmountOfComments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412290815281_AddCoverPatternName.resx">
+      <DependentUpon>201412290815281_AddCoverPatternName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412311015356_AddMottoToUser.resx">
+      <DependentUpon>201412311015356_AddMottoToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501021802395_AddCategoryLevel.resx">
+      <DependentUpon>201501021802395_AddCategoryLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501101000367_AddStoredProcedures.resx">
+      <DependentUpon>201501101000367_AddStoredProcedures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501111815375_ChangeFileEntity.resx">
+      <DependentUpon>201501111815375_ChangeFileEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501141905468_AddDeleteMessageProcedure.resx">
+      <DependentUpon>201501141905468_AddDeleteMessageProcedure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\StoredProcedures\DeleteMessage.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\Functions\SplitStrings.sql" />
+    <EmbeddedResource Include="Migrations\StoredProcedures\PublishMessage.sql" />
+    <EmbeddedResource Include="Migrations\StoredProcedures\SendMentionsToUsers.sql" />
+    <EmbeddedResource Include="Migrations\StoredProcedures\SendMessageToObservers.sql" />
+    <EmbeddedResource Include="Migrations\StoredProcedures\SendTransmit.sql" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="..\packages\GitVersionTask.2.0.0\Build\GitVersionTask.targets" Condition="'$(Configuration)|$(Platform)' != 'Debug|AnyCPU' And Exists('..\packages\GitVersionTask.2.0.0\Build\GitVersionTask.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\GitVersionTask.2.0.0\Build\GitVersionTask.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\GitVersionTask.2.0.0\Build\GitVersionTask.targets'))" />
+  </Target>
+</Project>

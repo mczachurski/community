@@ -1,0 +1,57 @@
+﻿@using System.Linq
+@model SunLine.Community.Web.ViewModels.Users.EditProfileViewModel
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Choose your profile cover</h3>
+    </div>
+
+    <div class="panel-body">
+        @using(Html.BeginForm("SaveCover", "Users", FormMethod.Post, new { @role = "form", @class = "form-horizontal", @enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, string.Empty, new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.CoverPatternName, new { @class = "col-md-4 control-label" })
+                <div class="col-md-7">
+                    <select class="form-control" id="coverPatternName" name="coverPatternName"@(string.IsNullOrWhiteSpace(Model.CoverImageUrl) ? string.Empty : " disabled='disabled'")>
+                        @foreach (var cover in Model.CoverPatternNames)
+                        {
+                            var isSelected = Model.CoverPatternName == cover.Id;
+                            <option value="@cover.Id" @(isSelected ? " selected='selected'" : string.Empty)>@cover.Name</option>
+                        }
+                    </select>
+                </div>
+				<div class="col-md-1">
+					<img id="selected-cover" src="@Url.Content("~/Content/images/covers/" + Model.CoverPatternName)" style="width: 40px; height: 40px">
+				</div>
+            </div>
+            <div class="form-group-separator"></div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.CoverImageUrl, new { @class = "col-md-4 control-label" })
+                <div class="col-md-8">
+                    <input type="file" name="image" id="image"/><br/>
+                    @if(!string.IsNullOrWhiteSpace(Model.CoverImageUrl))
+                    {
+                    	<img id="image-cover" src="@Model.CoverImageUrl" style="width: 100%;">
+                    }
+                </div>
+            </div>
+            <div class="form-group-separator"></div>
+
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-8">
+                    <input type="submit" class="btn btn-info" id="save-cover" value="Save cover" />
+                    @if(!string.IsNullOrWhiteSpace(Model.CoverImageUrl))
+                    {
+                    	<input type="hidden" id="deleteImageCover" name="deleteImageCover" value="false" />
+                    	<input type="submit" class="btn btn-danger" id="delete-cover" onclick="$('#deleteImageCover').val(true); return true;" value="Remove cover image" />
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+	

@@ -1,0 +1,27 @@
+﻿@model SunLine.Community.Web.ViewModels.Messages.MessageViewModel
+
+@if (Model.WasMessageQuotedByUser)
+{
+    <a onclick="userMessage.SendCommentQuote(this, '@Model.MessageId')" data-toggle="modal" data-target="#quotes-modal" class="liked">
+        <i class="fa-comments"></i> <span>@Model.AmountOfQuotes</span>
+    </a>
+}
+else
+{
+    <a onclick="userMessage.SendCommentQuote(this, '@Model.MessageId')" data-toggle="modal" data-target="#quotes-modal">
+        <i class="fa-comments-o"></i> <span>@(Model.AmountOfQuotes != 0 ? string.Format("{0}", Model.AmountOfQuotes) : string.Empty)</span>
+    </a>
+}
+    
+@if (Model.IsUserFavouriteMessage)
+{
+    <a onclick="userMessage.FavouriteComment(this, '@Model.MessageId')" class="liked">
+        <i class="fa-star"></i> <span>@Model.AmountOfFavourites</span>
+    </a>
+}
+else
+{
+    <a onclick="userMessage.FavouriteComment(this, '@Model.MessageId')">
+        <i class="fa-star-o"></i> <span>@(Model.AmountOfFavourites != 0 ? string.Format("{0}", Model.AmountOfFavourites) : string.Empty)</span>
+    </a>
+}

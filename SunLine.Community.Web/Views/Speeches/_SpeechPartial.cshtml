@@ -1,0 +1,42 @@
+﻿@model SunLine.Community.Web.ViewModels.Messages.SpeechViewModel
+
+@{
+    Layout = null;
+}
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default panel-center">
+            <div class="panel-heading">
+                <h3 class="panel-title">Speech</h3>
+            </div>
+
+            <div class="panel-body">
+
+		        @using (Html.BeginForm(Model.MessageId == Guid.Empty ? "Create" : "Edit", "Speeches", FormMethod.Post, new { @role = "form" }))
+		        {
+		            @Html.AntiForgeryToken()
+		            @Html.HiddenFor(x => x.MessageId)
+
+		            <div class="form-group">
+		                @Html.LabelFor(x => x.Mind) <div class="pull-right" id="charCounter">200</div>
+		                @Html.TextAreaFor(x => x.Mind, new { @class = "form-control", @rows = "3", @style = "max-width:100%; resize: none;" })
+		                @Html.ValidationMessageFor(x => x.Mind)
+		            </div>
+
+		            <div class="form-group">
+		                @Html.LabelFor(x => x.Speech)
+		                <textarea id="@Html.IdFor(x => x.Speech)" name="@Html.NameFor(x => x.Speech)" class="form-control" rows="10" data-uk-htmleditor="{markdown:true,mode:'tab'}" data-uk-htmleditor>@(Model.Speech ?? string.Empty)</textarea>
+		                @Html.ValidationMessageFor(x => x.Speech)
+		            </div>
+
+		            <div class="form-group">
+		                <a href="@Url.Action("Index", "Speeches")" class="btn btn-default">Cancel</a>
+		                <input type="submit" class="btn btn-success" value="Save" />
+		            </div>
+		        }
+
+			</div>
+		</div>
+    </div>
+</div>

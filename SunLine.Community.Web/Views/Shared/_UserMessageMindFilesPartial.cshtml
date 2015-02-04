@@ -1,0 +1,81 @@
+﻿@using System.Web.Mvc.Html
+@using SunLine.Community.Common
+@using SunLine.Community.Entities.Core
+@using SunLine.Community.Web.Extensions
+@using SunLine.Community.Web.ViewModels.Files
+@model SunLine.Community.Web.ViewModels.Messages.MessageViewModel
+
+
+@if(Model.Files != null)
+{
+
+	if(Model.Files.Count == 1)
+	{
+		<div class="story-album">
+			<a href="@(Model.Files[0].FileUrl)" data-gallery="#@Model.MessageId">
+				<img src="@(Model.Files[0].ThumbnailUrl)" alt="album-image" class="img-responsive" />
+			</a>
+		</div>
+	}
+
+	if(Model.Files.Count == 2)
+	{
+		<div class="story-album">
+			<div class="col-1"> 
+				<a href="@(Model.Files[0].FileUrl)" data-gallery="#@Model.MessageId">
+					<img src="@(Model.Files[0].ThumbnailUrl)" alt="album-image" class="img-responsive" />
+				</a>
+			</div>
+			<div class="col-2">
+				<a href="@(Model.Files[1].FileUrl)" class="base-padding" data-gallery="#@Model.MessageId"> 
+					<img src="@(Model.Files[1].ThumbnailUrl)" alt="album-image" class="img-responsive">
+				</a> 
+			</div>
+		</div>
+	}
+
+	if(Model.Files.Count == 3)
+	{
+		<div class="story-album">
+			<a href="@(Model.Files[0].FileUrl)" data-gallery="#@Model.MessageId">
+				<img src="@(Model.Files[0].ThumbnailUrl)" alt="album-image" class="img-responsive" />
+			</a>
+			<div class="vspacer v2"></div>
+			<div class="col-1"> 
+				<a href="@(Model.Files[1].FileUrl)" data-gallery="#@Model.MessageId">
+					<img src="@(Model.Files[1].ThumbnailUrl)" alt="album-image" class="img-responsive" />
+				</a>
+			</div>
+			<div class="col-2">
+				<a href="@(Model.Files[2].FileUrl)" class="base-padding" data-gallery="#@Model.MessageId"> 
+					<img src="@(Model.Files[2].ThumbnailUrl)" alt="album-image" class="img-responsive">
+				</a> 
+			</div>
+		</div>
+	}
+
+	if(Model.Files.Count == 4)
+	{
+		<div class="story-album">
+			<div class="col-1"> 
+				<a href="@(Model.Files[0].FileUrl)" data-gallery="#@Model.MessageId">
+					<img src="@(Model.Files[0].ThumbnailUrl)" alt="album-image" class="img-responsive">
+				</a> 
+				<div class="vspacer v2"></div> 
+				<a href="@(Model.Files[2].FileUrl)" data-gallery="#@Model.MessageId"> 
+					<img src="@(Model.Files[2].ThumbnailUrl)" alt="album-image" class="img-responsive"> 
+				</a>				
+			</div> 
+			<div class="col-2"> 
+				<a href="@(Model.Files[1].FileUrl)" class="base-padding" data-gallery="#@Model.MessageId"> 
+					<img src="@(Model.Files[1].ThumbnailUrl)" alt="album-image" class="img-responsive">
+				</a> 
+				<div class="vspacer v2"></div> 
+				<a href="@(Model.Files[3].FileUrl)" data-gallery="#@Model.MessageId"> 
+					<img src="@(Model.Files[3].ThumbnailUrl)" alt="album-image" class="img-responsive"> 
+				</a>
+			</div> 
+		</div>
+	}
+
+}

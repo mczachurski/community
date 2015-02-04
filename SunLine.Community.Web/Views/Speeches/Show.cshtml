@@ -1,0 +1,77 @@
+﻿@using System.Web.Mvc.Html
+@using SunLine.Community.Common
+@using SunLine.Community.Entities.Core
+@using SunLine.Community.Web.Extensions
+@model SunLine.Community.Web.ViewModels.Messages.MessageViewModel
+
+@{
+    ViewBag.Title = "Speech";
+
+    string defaultAvatarUrl = Url.Encode(Url.ContentAbsolute("~/Content/images/avatar.png"));
+    string avatarUrl = string.Format("http://www.gravatar.com/avatar/{0}?s=96&d={1}", Model.AuthorGravatarHash, defaultAvatarUrl);
+}
+
+<div class="row"> 
+    <div class="col-md-8 col-md-offset-2"> 
+    	<div class="panel panel-default panel-center user-speech">  
+			<div class="panel-heading">
+				<div class="row">
+					<div class="col-md-2">
+				        <a href="@Url.Action("Show", "Users", new { @id = Model.AuthorUserName } )" tabindex="0" role="button" class="user-img preview" data-placement="top">
+				            <img src="@avatarUrl" alt="user-img" class="img-responsive img-circle">
+				        </a>
+				  	</div>
+					<div class="col-md-10">
+						<div>
+            				<a href="@Url.Action("Show", "Users", new { @id = Model.AuthorUserName } )">@Model.AuthorFullName</a> <span class="speech-user-name">@@@Model.AuthorUserName</span>
+            				<div class="speech-time" style="font-size: 12px;">@Model.CreationDate.GetTimeString()</div>
+        				</div>
+						<div class="speech-mind">
+							@MvcHtmlString.Create(Model.Mind.GetMindWithLinks())
+						</div>
+					</div>
+				</div>
+			</div>
+	        <div class="panel-body">
+            	<div id="speech"></div>
+				<div class="story-options-links row" id="actions-@Model.MessageId">
+            		@Html.Partial("_UserMessageActionsPartial", Model)
+        		</div>
+            </div> 
+    	</div> 
+	</div> 
+</div>
+    
+<input id="markdown" type="hidden" value="@Model.Speech" />
+    
+@section Modals {
+    @Html.Partial("_UserMessageModalsPartial")
+}
+
+@section Scripts {
+	@Scripts.Render("~/bundles/usermessage")
+    @Scripts.Render("~/bundles/uikit")
+
+	<script type="text/javascript">
+
+        var speech = $("#markdown").val();
+        var markdown = marked(speech);
+        $("#speech").html(markdown);
+        $("#markdown").remove();
+
+        var userMessage = new SunLine.Community.UserMessage();
+        userMessage.Init({
+            TransmitUrl: '@Url.Action("Transmit", "Messages")',
+            FavouriteUrl: '@Url.Action("Favourite", "Messages")',
+            FavouriteCommentUrl: '@Url.Action("FavouriteComment", "Messages")',
+            ToggleConnectionUrl: '@Url.Action("ToggleConnection", "Users")',
+            PopoverUrl: '@Url.Action("Popover", "Users")',
+            BubbleUrl: '@Url.Action("Bubble", "Messages")',
+            DeleteMessageUrl: '@Url.Action("Delete", "Messages")',
+            FileUploadUrl: '@Url.Action("SaveUploadedFile", "Messages")'
+        });
+
+	</script>
+
+}
+

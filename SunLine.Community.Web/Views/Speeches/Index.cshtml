@@ -1,0 +1,85 @@
+﻿@using SunLine.Community.Web.ViewModels.Messages;
+@model IList<SpeechViewModel>
+
+@{
+    ViewBag.Title = "Your speeches";
+}
+
+<div class="row"> 
+    <div class="col-md-8 col-md-offset-2"> 
+    	<div class="panel panel-default panel-center"> 
+    		<div class="panel-heading"> 
+    			<h3 class="panel-title">Your speeches</h3> 
+    		</div> 
+
+			@if(Model.Count == 0)
+			{
+				<div class="panel-body center-text">
+					<h4 style="text-align: center;">You don't have any speeches yet.</h4>
+					<a href="@Url.Action("Create", "Speeches")" class="btn btn-secondary">New speech</a>
+				</div>
+			}
+			else
+			{
+				<div class="panel-body">
+		    		<table class="table table-striped"> 
+		    			<thead> 
+		    				<tr> 
+		    					<th>Mind</th>
+		    					<th style="min-width:100px;">State</th> 
+		    					<th style="min-width:220px;">Actions</th> 
+		    				</tr> 
+		    			</thead> 
+		    			<tbody>
+		    				@for(int i = 0; i < Model.Count; ++i)
+		    				{ 
+		    					SpeechViewModel speech = Model[i];
+			    				<tr id="row-@speech.MessageId"> 
+			    					<td>@speech.Mind</td> 
+			    					<td id="state">@speech.MessageStateName</td> 
+									<td> 
+										<a href="@Url.Action("Edit", "Speeches", new { @id = speech.MessageId })" class="btn btn-secondary btn-sm btn-icon icon-left">Edit</a>  
+										@if(speech.MessageStateEnum != SunLine.Community.Entities.Dict.MessageStateEnum.Published)
+										{
+											<a id="publish" onclick="userMessage.SetMessageToPublish('@speech.MessageId')" data-toggle="modal" data-target="#publish-confirm" class="btn btn-info btn-sm btn-icon icon-left">Publish</a>
+										}
+										<a onclick="userMessage.SetMessageToDelete('@speech.MessageId')" data-toggle="modal" data-target="#delete-confirm" class="btn btn-danger btn-sm btn-icon icon-left">Delete</a>
+									</td>
+			    				</tr> 
+		    				}
+		    			</tbody> 
+		    		</table>
+		    		<a href="@Url.Action("Create", "Speeches")" class="btn btn-secondary">New speech</a> 
+				</div>
+			}
+    	</div> 
+    </div> 
+</div>
+
+@section Modals {
+    @Html.Partial("_UserMessageModalsPartial")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/usermessage")
+
+    <script type="text/javascript">
+
+        var userMessage = new SunLine.Community.UserMessage();
+        userMessage.Init({
+			FileUploadUrl: '@Url.Action("SaveUploadedFile", "Messages")',
+            DeleteMessageUrl: '@Url.Action("Delete", "Messages")',
+            PublishMessageUrl: '@Url.Action("Publish", "Messages")'
+        });
+
+        userMessage.SetPublishMessageCallback(function(messageId) {
+        	$("#row-" + messageId).find("#state").html("Published");
+        	$("#row-" + messageId).find("#publish").remove();
+        });
+
+        userMessage.SetDeleteMessageCallback(function(messageId) {
+        	$("#row-" + messageId).remove();
+        });
+
+    </script>
+}

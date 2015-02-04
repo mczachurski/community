@@ -1,0 +1,74 @@
+﻿@using System.Web.Mvc.Html
+@using SunLine.Community.Common
+@using SunLine.Community.Entities.Core
+@using SunLine.Community.Web.Extensions
+@model SunLine.Community.Web.ViewModels.Messages.MessageViewModel
+
+@{
+    string defaultAvatarUrl = Url.Encode(Url.ContentAbsolute("~/Content/images/avatar.png"));
+    string avatarUrl = string.Format("http://www.gravatar.com/avatar/{0}?s=96&d={1}", Model.AuthorGravatarHash, defaultAvatarUrl);
+}
+
+<article class="timeline-story">
+    <i class="fa-paper-plane-empty block-icon"></i>
+    <header>
+        <a href="javascript:" tabindex="0" role="button" class="user-img preview" data-placement="top" data-user-id="@Model.AuthorId">
+            <img src="@avatarUrl" alt="user-img" class="img-responsive img-circle">
+        </a>
+
+        <div class="user-details">
+            <a href="@Url.Action("Show", "Users", new { @id = Model.AuthorUserName })" class="story-user">@Model.AuthorFullName</a> <span class="story-user-name">@@@Model.AuthorUserName</span>
+            @if (@Model.IsTransmittedToUser)
+            {
+                <span class="retransmitted pull-right">Transmitted by <a href="@Url.Action("Show", "Users", new { @id = Model.TransmittedUserName })">@Model.TransmittedUserFullName</a>.</span>
+            }
+            <time>@Model.CreationDate.GetTimeString()</time>
+        </div>
+    </header>
+    <div class="story-content">
+        <p class="story-mind">
+            @MvcHtmlString.Create(Model.Mind.GetMindWithLinks())
+            @(Model.HasSpeech ? MvcHtmlString.Create(" <a class='read-more' href='" + Url.Action("Show", "Speeches", new { @id = Model.MessageId }) + "'>Read&nbsp;more&nbsp;(" + Model.SpeechReadingTime + "&nbsp;min.)</a>") : MvcHtmlString.Empty)
+        </p>
+
+		@Html.Partial("_UserMessageMindFilesPartial", Model)
+
+        @if (Model.QuotedMessage != null)
+        {
+            <blockquote>
+                <p>
+                    <strong>@Model.QuotedMessage.AuthorFullName</strong> <span class="story-user-name">@@@Model.QuotedMessage.AuthorUserName</span><br>
+                    @MvcHtmlString.Create(Model.QuotedMessage.Mind.GetMindWithLinks())
+                </p>
+               @Html.Partial("_UserMessageMindFilesPartial", Model.QuotedMessage)
+            </blockquote>
+            <div class="clearfix"></div>
+        }
+
+        @if (Model.Comments != null && Model.Comments.Count > 0)
+        {
+            <ul class="list-unstyled story-comments scrollable" id="comments-@Model.MessageId">
+                @foreach (var comment in Model.Comments)
+                {
+                    @Html.Partial("_UserMessageCommentPartial", comment)
+                }
+            </ul>
+        }
+
+        <div class="story-options-links row" id="actions-@Model.MessageId">
+            @Html.Partial("_UserMessageActionsPartial", Model)
+        </div>
+
+        <div id="reply-@Model.MessageId" style="display: none">
+            @using (Ajax.BeginForm("AddCommentAjax", new { Controller = "Messages" }, new AjaxOptions { HttpMethod = "POST", OnSuccess = "userMessage.OnSuccessCreateComment", OnFailure = "userMessage.OnFailureCreateComment", OnBegin = "userMessage.OnBeginCreateComment('" + Model.MessageId + "')", OnComplete = "userMessage.OnCompleteCreateComment('" + Model.MessageId + "')" }, new { @class = "story-comment-form" }))
+            {
+                @Html.Hidden("commentedMessageId", Model.MessageId)
+                @Html.AntiForgeryToken()
+
+                <textarea class="form-control story-comment-text" name="Mind" placeholder="Enter your comment"></textarea>
+                <button class="btn btn-single btn-xs btn-success">Create</button>
+                <span class="char-counter" id="comment-char-counter">200</span>
+            }
+        </div>
+    </div>
+</article>

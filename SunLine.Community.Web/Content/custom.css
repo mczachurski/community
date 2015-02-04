@@ -1,0 +1,437 @@
+/**
+ *
+ * Apply your custom CSS here
+ *
+*/
+
+.toast-top-right {
+  top: 62px;
+}
+
+.header-placžeholder {
+    height: 0;
+}
+
+@media screen and (min-width:768px) {
+    .header-placeholder {
+        height: 55px;
+    }
+
+    .settings-pane-open .header-placeholder {
+        height: 0;
+    }
+}
+.page-loader {
+	z-index: 200;
+	position: fixed;
+	width: 100%;
+	text-align: center;
+	top: 16px;
+	display: none;
+}
+
+.profile-cover {
+	height: 400px;
+	margin: -30px -30px 40px -30px;
+}
+
+.profile-cover-image {
+	background-size:cover; 
+	background-position:center center; 
+	background-repeat:no-repeat; 
+}
+
+.profile-cover-pattern {
+	background-repeat:repeat; 
+}
+
+.profile-env {
+    max-width: 960px;
+}
+
+    .profile-env .profile-post-form:after {
+        display: none;
+    }
+
+    .profile-env .profile-post-form textarea {
+        border: 1px solid #ccc;
+    }
+
+.user-info-placeholder {
+    position: relative; 
+    top: -90px;
+}
+
+.char-counter {
+    color: #979898;
+    line-height: 14px;
+    vertical-align: bottom;
+}
+
+.mind-file {
+    margin-top: 10px;
+    min-height: 260px
+}
+
+.timeline-load-button {
+    text-align: center;
+}
+
+.profile-env .user-timeline-stories .timeline-story {
+    margin-bottom: 16px;
+    border: 1px solid #e4e4e4;
+}
+
+	.profile-env .user-timeline-stories .timeline-story .story-options-links a {
+	    margin-right: 0px;
+	}
+
+    .profile-env .user-timeline-stories .timeline-story .story-options-links > span {
+        display: inline-block;
+        margin-right: 0px;
+    }
+
+    .profile-env .user-timeline-stories .timeline-story .story-options-links span.liked {
+        color: #ed3434;
+    }
+
+    .profile-env .user-timeline-stories .timeline-story .story-options-links .actions-number {
+    	padding-left: 8px;
+	}
+
+.story-options-links a {
+    cursor: pointer;
+}
+
+.user-details .retransmitted {
+    font-size: 12px;
+    color: #b1b1b1;
+}
+
+.story-comment-text {
+    resize: none;
+    overflow: hidden;
+    word-wrap: break-word;
+    height: 66px;
+}
+
+.timeline-story .user-details .story-user-name {
+    font-size: 12px;
+    color: #b1b1b1;
+}
+
+.timeline-story .story-content .story-user-name {
+    font-size: 12px;
+    color: #b1b1b1;
+}
+
+.ajax-loader {
+    display: none;
+}
+
+.profile-post-form .ajax-loader {
+    float: right;
+    margin-top: -17px;
+    margin-right: 5px;
+}
+
+.profile-env .user-timeline-stories .timeline-story .story-comments .story-comment .story-comment-content .story-comment-user-name {
+    display: inline-block;
+}
+
+.profile-env .user-timeline-stories .timeline-story .story-comments .story-comment .story-comment-content time {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 11px;
+    color: #b1b1b1;
+}
+
+.profile-env .user-timeline-stories .timeline-story .story-comments .story-comment .story-comment-content .comment-options-links a {
+    display: inline-block;
+    color: #979898;
+    cursor: pointer;
+    font-size: 11px;
+    margin-left: 10px;
+}
+
+.profile-env .user-timeline-stories .timeline-story .story-comments .story-comment .story-comment-content a.liked {
+    color: #ed3434;
+}
+
+.profile-env .user-timeline-stories .timeline-story .story-content .story-mind .read-more {
+    color: #ed3434;
+    font-size: 12px;
+}
+
+.popover-user-profile {
+    color: #7d7f7f;
+    min-width: 200px;
+}
+
+    .popover-user-profile .user-image {
+        display: block;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+        .popover-user-profile .user-image img {
+            width: 80px;
+            height: 80px;
+        }
+
+    .popover-user-profile .user-full-name {
+        display: block;
+        font-size: 19px;
+        text-align: center;
+    }
+
+    .popover-user-profile .user-name {
+        display: block;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .popover-user-profile .user-motto {
+        display: block;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .popover-user-profile .user-friends-count {
+        display: table;
+        margin: 20px auto;
+    }
+
+        .popover-user-profile .user-friends-count li {
+            position: relative;
+            display: table-cell;
+            color: #b1b1b1;
+            font-size: 12px;
+            padding: 0 20px;
+        }
+
+            .popover-user-profile .user-friends-count li span {
+                display: block;
+                font-size: 23px;
+                color: #646565;
+            }
+
+            .popover-user-profile .user-friends-count li:first-child {
+                padding-left: 0;
+            }
+
+            .popover-user-profile .user-friends-count li:last-child {
+                padding-right: 0;
+            }
+
+            .popover-user-profile .user-friends-count li + li:after {
+                display: block;
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 15%;
+                bottom: 15%;
+                width: 1px;
+                background: #ddd;
+            }
+
+.profile-env .user-info-sidebar .user-image {
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+    .profile-env .user-info-sidebar .user-image img {
+        width: 120px;
+        height: 120px;
+    }
+
+.profile-env .user-info-sidebar .user-full-name {
+    display: block;
+    font-size: 19px;
+    text-align: center;
+}
+
+.profile-env .user-info-sidebar .user-name {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+}
+
+.profile-env .user-info-sidebar .user-motto {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+}
+
+.xe-widget.xe-counter {
+	cursor: pointer;
+	border-top: 3px solid white;
+}
+
+.xe-widget.xe-counter:hover {
+	cursor: pointer;
+	border-top: 3px solid #0e62c7;
+}
+
+.active-link .xe-widget.xe-counter {
+	cursor: default;
+	border-top: 3px solid #0e62c7;
+}
+
+.user-panel {
+    position: relative;
+    background: #fff;
+    padding: 20px 12px;
+    border: 0;
+    margin-bottom: 30px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    height: 100%;
+}
+
+.user-panel .user-panel-heading {
+    margin-top: -20px;
+    margin-left: -12px;
+    margin-right: -12px;
+    padding: 10px 0px;
+    border-bottom: 0;
+	background-color: #40bbea;
+	background-size: contain;
+}
+
+.user-panel .user-panel-heading .img-circle {
+	margin-left: auto;
+	margin-right: auto;
+	width: 76px;
+	padding: 4px;
+	background-color: #fff;
+	border: 1px solid #e1e1e1;
+	border-radius: 50%;
+	-webkit-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+.user-panel .user-panel-body {
+    padding: 0;
+    padding-top: 20px;
+    color: #979898
+}
+
+.user-panel .user-panel-body .full-name {
+	color: #2c2e2f;
+	display: block;
+	font-family: Arimo, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 17px;
+}
+
+.user-panel .user-panel-body .user-name {
+	color: #2c2e2f;
+	display: block;
+	font-family: Arimo, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 12px; 
+	margin-bottom: 9px;
+}
+
+.user-panel .user-panel-body p {
+	height: 120px;
+}
+
+.nav.nav-tabs+.tab-content.tab-search-content {
+	padding: 30px 0px 0px 0px;
+	background: none;
+}
+
+.page-confirmation {
+    background: #fff;
+    width: 700px;
+    padding: 50px;
+    margin-bottom: 20px
+}
+
+@media screen and (max-width:991px) {
+    ..page-confirmation {
+        width: 90%
+    }
+
+    .main-content ..page-confirmation {
+        width: 100%
+    }
+}
+
+.page-confirmation.centered {
+    margin-left: auto;
+    margin-right: auto
+}
+
+.page-confirmation h2 {
+    font-size: 35px;
+    margin-bottom: 20px
+}
+
+.page-confirmation h2 small {
+    display: block;
+    padding-top: 10px;
+    color: #bcbcbc;
+    font-size: 50%
+}
+
+.uk-htmleditor-preview {
+	color: rgb(44, 46, 47);
+}
+
+.uk-htmleditor-preview p {
+	color: rgb(44, 46, 47);
+}
+
+.panel-center 
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 740px;
+}
+
+.panel-center-big
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 960px;
+}
+
+.user-speech
+{
+	color: #5e5e5e;
+	font-size: 14px;
+	line-height: 1.5em;
+}
+
+.user-speech p
+{
+	color: #5e5e5e;
+}
+
+.user-speech img
+{
+	width: 100%;
+}
+
+.user-speech .speech-user-name
+{
+	font-size: 12px;
+	color: #b1b1b1;
+}
+
+.user-speech .speech-time
+{
+	font-size: 12px;
+	color: #b1b1b1;
+}
+
+.user-speech .speech-mind
+{
+	color: #979898;
+}
