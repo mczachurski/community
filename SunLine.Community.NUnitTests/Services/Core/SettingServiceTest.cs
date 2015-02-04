@@ -18,14 +18,6 @@ namespace SunLine.Community.NUnitTests.Services.Core
             _settingService = ServiceLocator.Current.GetInstance<ISettingService>();
             _unitOfWork = ServiceLocator.Current.GetInstance<IUnitOfWork>();
         }
-            
-        [Test]
-        public void service_must_return_correct_attachment_path()
-        {
-            var value = _settingService.AttachmentsDirectory;
-
-            Assert.AreEqual(@"<<AttachmentsDirectory>>", value, "Service returned not correct attachment path");
-        }
 
         [Test]
         public void service_must_return_correct_recaptcha_private_key()
@@ -56,7 +48,7 @@ namespace SunLine.Community.NUnitTests.Services.Core
         {
             var value = _settingService.SmtpPort;
 
-            Assert.AreEqual("<<SmtpPort>>", value, "Service returned not correct smtp server port");
+            Assert.AreEqual(587, value, "Service returned not correct smtp server port");
         }
 
         [Test]

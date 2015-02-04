@@ -11,12 +11,12 @@ namespace SunLine.Community.Repositories.Migrations.TableData.Core
             AddSetting(context, "RecaptchaPrivateKey", "Recaptcha private key", "<<RecaptchaPrivateKey>>");
             AddSetting(context, "RecaptchaPublicKey", "Recaptcha public key", "<<RecaptchaPublicKey>>");
             AddSetting(context, "SmtpServer", "SMTP server address", "<<SmtpServer>>");
-            AddSetting(context, "SmtpPort", "SMTP server port", "<<SmtpPort>>");
+            AddSetting(context, "SmtpPort", "SMTP server port", "587");
             AddSetting(context, "SmtpLogin", "Login to the mail server", "<<SmtpLogin>>");
             AddSetting(context, "SmtpPassword", "The password for the mail server", "<<SmtpPassword>>");
             AddSetting(context, "SmtpSenderName", "The name of the address is sent", "<<SmtpSenderName>>");
             AddSetting(context, "SmtpSenderAddress", "Address from which emails are sent", "<<SmtpSenderAddress>>");
-            AddSetting(context, "MaxCoverNameCounter", "Max cover name counter", @"<<MaxCoverNameCounter>>");
+            AddSetting(context, "MaxCoverNameCounter", "Max cover name counter", @"37");
             AddSetting(context, "StorageConnectionString", "Connection string to Azure Storage", @"<<StorageConnectionString>>");
         }
 

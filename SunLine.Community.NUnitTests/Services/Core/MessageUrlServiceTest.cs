@@ -26,10 +26,7 @@ namespace SunLine.Community.NUnitTests.Services.Core
 
             _errorService = MockRepository.GenerateStub<IErrorService>();
 
-            _bitlyService = MockRepository.GenerateStub<IBitlyService>();
-            _bitlyService.Stub(x => x.Shorten("http://en.wikipedia.org/wiki/List_of_films_considered_the_best")).Return("http://bit.ly/16lmX8q");
-            _bitlyService.Stub(x => x.Shorten("http://rateyourmusic.com/list/morre/top_500_best_songs_ever/")).Return("http://bit.ly/16llJdo");
-
+            _bitlyService = ServiceLocator.Current.GetInstance<IBitlyService>();
             _messageUrlRepository = ServiceLocator.Current.GetInstance<IMessageUrlRepository>();
             _unitOfWork = ServiceLocator.Current.GetInstance<IUnitOfWork>();
 

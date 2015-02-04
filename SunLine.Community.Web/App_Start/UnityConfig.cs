@@ -14,6 +14,7 @@ using SunLine.Community.Entities.Exceptions;
 using SunLine.Community.Repositories.Core;
 using SunLine.Community.Repositories.Infrastructure;
 using SunLine.Community.Services;
+using SunLine.Community.Services.Search;
 using SunLine.Community.Web.Common;
 using Unity.Mvc5;
 
@@ -49,6 +50,7 @@ namespace SunLine.Community.Web
         private static void RegisterTypes(IUnityContainer container)
         {
             RegisterBitlyService(container);
+            container.RegisterType<ILuceneService, LuceneAzureService>();
             container.RegisterType<IUnitOfWork, UnitOfWork>();
             container.RegisterType<IDbSession, DbSession>();
             container.RegisterType<IUserRepository, UserRepository>();

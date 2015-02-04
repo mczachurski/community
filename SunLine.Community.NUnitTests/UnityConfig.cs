@@ -8,6 +8,7 @@ using Rhino.Mocks;
 using SunLine.Community.Repositories.Core;
 using SunLine.Community.Repositories.Infrastructure;
 using SunLine.Community.Services;
+using SunLine.Community.Services.Search;
 
 namespace SunLine.Community.NUnitTests
 {
@@ -33,10 +34,9 @@ namespace SunLine.Community.NUnitTests
         }
 
         private static void RegisterTypes(IUnityContainer container)
-        {         
-            IBitlyService bitlyService = MockRepository.GenerateStub<IBitlyService>();
-            container.RegisterInstance<IBitlyService>(bitlyService);
-
+        {
+            RegisterBitlyService(container);
+            container.RegisterType<ILuceneService, LuceneRamService>();
             container.RegisterType<IUnitOfWork, UnitOfWork>();
             container.RegisterType<IUserRepository, UserRepository>();
             container.RegisterInstance<IDbSession>(new DbSession());
@@ -58,6 +58,14 @@ namespace SunLine.Community.NUnitTests
             {
                 Debug.WriteLine(item.RegisteredType + " - " + item.MappedToType + " - " + item.Name);
             }
+        }
+
+        private static void RegisterBitlyService(IUnityContainer container)
+        {
+            var bitlyService = MockRepository.GenerateStub<IBitlyService>();
+            bitlyService.Stub(x => x.Shorten("http://en.wikipedia.org/wiki/List_of_films_considered_the_best")).Return("http://bit.ly/16lmX8q");
+            bitlyService.Stub(x => x.Shorten("http://rateyourmusic.com/list/morre/top_500_best_songs_ever/")).Return("http://bit.ly/16llJdo");
+            container.RegisterInstance(bitlyService);
         }
     }
 }

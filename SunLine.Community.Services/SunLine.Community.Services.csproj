@@ -142,7 +142,10 @@
     <Compile Include="Dict\MessageStateService.cs" />
     <Compile Include="Core\MessageFavouriteService.cs" />
     <Compile Include="Core\IMessageFavouriteService.cs" />
+    <Compile Include="Search\ILuceneService.cs" />
     <Compile Include="Search\ISearchService.cs" />
+    <Compile Include="Search\LuceneAzureService.cs" />
+    <Compile Include="Search\LuceneRamService.cs" />
     <Compile Include="Search\SearchService.cs" />
     <Compile Include="Azure\IAzureFileService.cs" />
     <Compile Include="Azure\AzureFileService.cs" />
