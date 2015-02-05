@@ -1,5 +1,4 @@
 using System.IO;
-using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using SunLine.Community.Services.Core;
@@ -10,6 +9,8 @@ namespace SunLine.Community.Services.Azure
     public class AzureFileService : IAzureFileService
     {
         private readonly ISettingService _settingService;
+        private const string AzuerStorageHostAddress = "http://minds.blob.core.windows.net";
+        private const string ThumbnailsDirectory = "thumbnails";
 
         public AzureFileService(ISettingService settingService)
         {
@@ -42,12 +43,12 @@ namespace SunLine.Community.Services.Azure
 
         public string GetUrlToFile(string userName, string filePath)
         {
-            return string.Format("http://minds.blob.core.windows.net/{0}/{1}", userName, filePath);
+            return string.Format("{0}/{1}/{2}", AzuerStorageHostAddress, userName, filePath);
         }
 
         public string GetUrlToFileThumbnail(string userName, string filePath)
         {
-            return string.Format("http://minds.blob.core.windows.net/{0}/thumbnails/{1}", userName, filePath);
+            return string.Format("{0}/{1}/{2}/{3}", AzuerStorageHostAddress, userName, ThumbnailsDirectory, filePath);
         }
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using Microsoft.AspNet.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 

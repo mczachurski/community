@@ -1,6 +1,4 @@
-﻿using System.Data.Entity;
-
-namespace SunLine.Community.Repositories.Infrastructure
+﻿namespace SunLine.Community.Repositories.Infrastructure
 {
     public class UnitOfWork : IUnitOfWork
     {

@@ -1,6 +1,5 @@
 ﻿using Microsoft.Practices.ServiceLocation;
 using NUnit.Framework;
-using SunLine.Community.Repositories.Infrastructure;
 using SunLine.Community.Services.Core;
 
 namespace SunLine.Community.NUnitTests.Services.Core
@@ -9,14 +8,11 @@ namespace SunLine.Community.NUnitTests.Services.Core
     public class SettingServiceTest : BaseTest
     {
         ISettingService _settingService;
-        private IUnitOfWork _unitOfWork;
 
         public override void SetUp()
         {
             base.SetUp();
-
             _settingService = ServiceLocator.Current.GetInstance<ISettingService>();
-            _unitOfWork = ServiceLocator.Current.GetInstance<IUnitOfWork>();
         }
 
         [Test]

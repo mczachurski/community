@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Lucene.Net.Documents;
+﻿using Lucene.Net.Documents;
 
 namespace SunLine.Community.Services.Search
 {

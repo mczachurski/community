@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.Policy;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
 using System.Text;
@@ -18,9 +17,9 @@ namespace SunLine.Community.Common
             int c = 0;
             for (int i = 1; i < s.Length; i++)
             {
-                if (Char.IsWhiteSpace(s[i - 1]) == true)
+                if (Char.IsWhiteSpace(s[i - 1]))
                 {
-                    if (Char.IsLetterOrDigit(s[i]) == true ||
+                    if (Char.IsLetterOrDigit(s[i]) ||
                         Char.IsPunctuation(s[i]))
                     {
                         c++;

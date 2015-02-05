@@ -67,7 +67,6 @@ namespace SunLine.Community.Entities.Core
         public virtual File CoverFile { get; set; }
 
         [StringLength(200)]
-        [DisplayName("Motto")]
         public virtual string Motto { get; set; }
 
         [StringLength(100)]

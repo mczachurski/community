@@ -5,7 +5,6 @@ using SunLine.Community.Entities.Core;
 using SunLine.Community.Entities.Dict;
 using SunLine.Community.Repositories.Core;
 using SunLine.Community.Repositories.Dict;
-using SunLine.Community.Repositories.Infrastructure;
 using SunLine.Community.Services.Infrastructure;
 
 namespace SunLine.Community.Services.Core

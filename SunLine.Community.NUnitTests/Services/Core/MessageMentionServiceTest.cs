@@ -1,8 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.Practices.ServiceLocation;
 using NUnit.Framework;
-using SunLine.Community.Entities.Core;
 using SunLine.Community.Repositories.Core;
 using SunLine.Community.Repositories.Infrastructure;
 using SunLine.Community.Services.Core;

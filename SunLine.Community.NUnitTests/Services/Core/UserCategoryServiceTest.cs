@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.Practices.ServiceLocation;
 using NUnit.Framework;
 using SunLine.Community.Entities.Core;

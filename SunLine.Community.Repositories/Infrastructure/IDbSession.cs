@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SunLine.Community.Repositories.Infrastructure
+﻿namespace SunLine.Community.Repositories.Infrastructure
 {
     public interface IDbSession
     {

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using SunLine.Community.Entities.Dict;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
 
 namespace SunLine.Community.Web.ViewModels.Users
 {

@@ -4,17 +4,8 @@ using System.Web.Mvc;
 
 namespace SunLine.Community.Web.ModelBinder
 {
-    /// <summary>
-    /// Model binder konwertujący wartości liczbowe.
-    /// </summary>
     public class DecimalModelBinder : DefaultModelBinder
     {
-        /// <summary>
-        /// Bindowanie modelu.
-        /// </summary>
-        /// <param name="controllerContext">Kontekst kontrolera.</param>
-        /// <param name="bindingContext">Kontekst wiązania.</param>
-        /// <returns>Wartość po konwersji.</returns>
         public override object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
             if (bindingContext == null)

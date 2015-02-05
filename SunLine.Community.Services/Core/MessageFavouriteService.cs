@@ -52,11 +52,6 @@ namespace SunLine.Community.Services.Core
 
             _messageRepository.Update(message);
         }
-
-        private  MessageFavourite GetUserFavouriteMessage(Guid userId, Guid messageId)
-        {
-            return _messageFavouriteRepository.GetUserFavouriteMessage(userId, messageId);
-        }
     }
 }
 

@@ -20,7 +20,7 @@ namespace SunLine.Community.Repositories.Migrations
                     throw new ArgumentException(string.Format("Resource {0} not exists.", resourceName));
                 }
 
-                using (StreamReader reader = new StreamReader(stream))
+                using (var reader = new StreamReader(stream))
                 {
                     stream = null;
                     result = reader.ReadToEnd();
