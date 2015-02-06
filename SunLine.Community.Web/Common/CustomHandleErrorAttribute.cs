@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Diagnostics;
+using System.Web.Mvc;
 using Microsoft.Practices.ServiceLocation;
 using SunLine.Community.Repositories.Infrastructure;
 using SunLine.Community.Services.Core;
@@ -22,9 +24,9 @@ namespace SunLine.Community.Web.Common
                     }
                 }
             }
-            catch
+            catch(Exception exception)
             {
-                //TODO: In some cases we have to log exception to file.
+                Trace.TraceError("Exception: " + exception);
             }
 
             // Redirect to page with error message.

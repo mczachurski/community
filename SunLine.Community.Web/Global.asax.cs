@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Net;
 using System.Web;
 using System.Web.Http;
@@ -51,7 +52,7 @@ namespace SunLine.Community.Web
             var httpException = exception as HttpException;
             if (httpException == null)
             {
-                Response.Redirect(VirtualPathUtility.ToAbsolute("~/Errors/Unknown"));
+                Trace.TraceError("Exception: " + exception);
                 return;
             }
 
