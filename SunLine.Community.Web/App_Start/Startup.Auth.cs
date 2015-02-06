@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -20,6 +21,8 @@ namespace SunLine.Community.Web
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
+            Trace.TraceInformation("Configuration authorization provider");
+
             // add this assignment
             DataProtectionProvider = app.GetDataProtectionProvider();
 

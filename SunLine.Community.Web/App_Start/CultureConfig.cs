@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics;
+using System.Globalization;
 
 namespace SunLine.Community.Web
 {
@@ -6,6 +7,8 @@ namespace SunLine.Community.Web
     {
         public static void Register()
         {
+            Trace.TraceInformation("CultureConfig registering");
+
             CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
             culture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd";
             CultureInfo.DefaultThreadCurrentCulture = culture;

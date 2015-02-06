@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Diagnostics;
+using System.Web.Mvc;
 using SunLine.Community.Web.Common;
 
 namespace SunLine.Community.Web
@@ -7,6 +8,8 @@ namespace SunLine.Community.Web
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
+            Trace.TraceInformation("FilterConfig register global filters");
+
             filters.Add(new CustomHandleErrorAttribute());
         }
     }

@@ -1,5 +1,6 @@
-﻿using SunLine.Community.Web.ModelBinder;
+﻿using System.Diagnostics;
 using System.Web.Mvc;
+using SunLine.Community.Web.ModelBinder;
 
 namespace SunLine.Community.Web
 {
@@ -7,6 +8,7 @@ namespace SunLine.Community.Web
     {
         public static void Register()
         {
+            Trace.TraceInformation("ModelBinderConfig registration");
             ModelBinders.Binders.Add(typeof(decimal), new DecimalModelBinder());
         }
     }

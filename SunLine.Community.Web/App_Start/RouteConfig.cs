@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Diagnostics;
+using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace SunLine.Community.Web
@@ -7,6 +8,8 @@ namespace SunLine.Community.Web
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            Trace.TraceInformation("RouteConfig register routes");
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(

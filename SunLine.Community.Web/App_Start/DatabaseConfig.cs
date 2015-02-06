@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using System.Diagnostics;
 using SunLine.Community.Repositories;
 using SunLine.Community.Services;
 
@@ -8,6 +9,8 @@ namespace SunLine.Community.Web
     {
         public static void Register()
         {
+            Trace.TraceInformation("DatabaseConfig registering");
+
             SetSqlAzureExecutionStrategy();
             DatabaseSetup.Init();
         }
