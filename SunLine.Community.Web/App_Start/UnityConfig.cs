@@ -1,4 +1,5 @@
 using System;
+using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
@@ -9,7 +10,6 @@ using BitlyDotNET.Interfaces;
 using Microsoft.Owin.Security;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
-using Microsoft.WindowsAzure;
 using SunLine.Community.Entities.Exceptions;
 using SunLine.Community.Repositories.Core;
 using SunLine.Community.Repositories.Infrastructure;
@@ -86,8 +86,8 @@ namespace SunLine.Community.Web
 
         private static void RegisterBitlyService(IUnityContainer container)
         {
-            string bitlyUserName = CloudConfigurationManager.GetSetting("BitlyUserName");
-            string bitlyPrivateKey = CloudConfigurationManager.GetSetting("BitlyPrivateKey");
+            string bitlyUserName = ConfigurationManager.AppSettings["BitlyUserName"];
+            string bitlyPrivateKey = ConfigurationManager.AppSettings["BitlyPrivateKey"];
 
             if(bitlyUserName == string.Empty || bitlyPrivateKey == string.Empty)
             {

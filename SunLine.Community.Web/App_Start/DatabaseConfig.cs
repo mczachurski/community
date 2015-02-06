@@ -1,4 +1,4 @@
-﻿using Microsoft.WindowsAzure;
+﻿using System.Configuration;
 using SunLine.Community.Repositories;
 using SunLine.Community.Services;
 
@@ -14,7 +14,7 @@ namespace SunLine.Community.Web
 
         private static void SetSqlAzureExecutionStrategy()
         {
-            string azureExecutionStrategy = CloudConfigurationManager.GetSetting("SqlAzureExecutionStrategyEnabled");
+            string azureExecutionStrategy = ConfigurationManager.AppSettings["SqlAzureExecutionStrategyEnabled"];
             ModelConfiguration.SqlAzureExecutionStrategyEnabled = azureExecutionStrategy == "true";
         }
     }
