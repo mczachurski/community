@@ -31,31 +31,38 @@ namespace SunLine.Community.Web
             {
                 Exception exception = Server.GetLastError();
                 Server.ClearError();
-                Response.Clear();
 
-                if (exception != null)
-                {
-                    if (MaxRequestExceededHelper.IsMaxRequestExceededException(exception))
-                    {
-                        Response.Redirect(VirtualPathUtility.ToAbsolute("~/Errors/UploadTooLarge"));
-                    }
-                    else
-                    {
-                        HandleHttpError(exception);
-                    }
-                }
+                Trace.TraceError("Unhandled Exception: " + exception);
+                TryHandleException(exception);
             }
         }
 
-        private void HandleHttpError(Exception exception)
+        private void TryHandleException(Exception exception)
+        {
+            if (exception == null)
+            {
+                return;
+            }
+
+            if (MaxRequestExceededHelper.IsMaxRequestExceededException(exception))
+            {
+                Response.Redirect(VirtualPathUtility.ToAbsolute("~/Errors/UploadTooLarge"));
+            }
+            else
+            {
+                TryHandleHttpError(exception);
+            }
+        }
+
+        private void TryHandleHttpError(Exception exception)
         {
             var httpException = exception as HttpException;
             if (httpException == null)
             {
-                Trace.TraceError("Exception: " + exception);
                 return;
             }
 
+            Response.Clear();
             switch (httpException.GetHttpCode())
             {
                 case (int)HttpStatusCode.Forbidden:
