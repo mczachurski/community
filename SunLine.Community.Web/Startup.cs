@@ -10,7 +10,7 @@ namespace SunLine.Community.Web
     {
         public void Configuration(IAppBuilder app)
         {
-            Trace.TraceInformation("Startup configuration");
+            Trace.TraceInformation("Owin auth configuration");
             ConfigureAuth(app);
         }
     }

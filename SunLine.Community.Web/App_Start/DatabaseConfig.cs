@@ -9,7 +9,7 @@ namespace SunLine.Community.Web
     {
         public static void Register()
         {
-            Trace.TraceInformation("DatabaseConfig registering");
+            Trace.TraceInformation("Initialize DatabaseConfig");
 
             SetSqlAzureExecutionStrategy();
             DatabaseSetup.Init();

@@ -7,7 +7,7 @@ namespace SunLine.Community.Web
     {
         public static void Register()
         {
-            Trace.TraceInformation("CultureConfig registering");
+            Trace.TraceInformation("Initialize CultureConfig");
 
             CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
             culture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd";

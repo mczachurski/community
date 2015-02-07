@@ -8,7 +8,7 @@ namespace SunLine.Community.Web
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            Trace.TraceInformation("FilterConfig register global filters");
+            Trace.TraceInformation("Initialize FilterConfig");
 
             filters.Add(new CustomHandleErrorAttribute());
         }

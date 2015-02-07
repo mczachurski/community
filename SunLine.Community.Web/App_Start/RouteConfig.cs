@@ -8,7 +8,7 @@ namespace SunLine.Community.Web
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            Trace.TraceInformation("RouteConfig register routes");
+            Trace.TraceInformation("Initialize RouteConfig");
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 

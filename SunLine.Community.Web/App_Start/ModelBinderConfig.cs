@@ -8,7 +8,7 @@ namespace SunLine.Community.Web
     {
         public static void Register()
         {
-            Trace.TraceInformation("ModelBinderConfig registration");
+            Trace.TraceInformation("Initialize ModelBinderConfig");
             ModelBinders.Binders.Add(typeof(decimal), new DecimalModelBinder());
         }
     }

@@ -25,7 +25,7 @@ namespace SunLine.Community.Web
     {
         public static IUnityContainer Register()
         {
-            Trace.TraceInformation("UnityConfig registration");
+            Trace.TraceInformation("Initialize UnityConfig");
 
             var container = BuildUnityContainer();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
@@ -82,7 +82,7 @@ namespace SunLine.Community.Web
             // Logging registered types.
             foreach (var item in container.Registrations)
             {
-                Trace.TraceInformation("Unity types: " + item.RegisteredType + " - " + item.MappedToType + " - " + item.Name);
+                Trace.TraceInformation("Registered type: " + item.RegisteredType + " - " + item.MappedToType + " - " + item.Name);
             }
         }
 
