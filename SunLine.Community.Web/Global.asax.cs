@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Net;
+using System.Reflection;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -44,14 +45,44 @@ namespace SunLine.Community.Web
                 return;
             }
 
+            if (TryHandleMaxRequestExceddedException(exception))
+            {
+                return;
+            }
+
+            if (TryHandleReflectionTypeLoadException(exception))
+            {
+                return;
+            }
+
+            TryHandleHttpError(exception);
+        }
+
+        private bool TryHandleMaxRequestExceddedException(Exception exception)
+        {
             if (MaxRequestExceededHelper.IsMaxRequestExceededException(exception))
             {
                 Response.Redirect(VirtualPathUtility.ToAbsolute("~/Errors/UploadTooLarge"));
+                return true;
             }
-            else
+
+            return false;
+        }
+
+        private bool TryHandleReflectionTypeLoadException(Exception exception)
+        {
+            var reflectionTypeLoadException = exception as ReflectionTypeLoadException;
+            if (reflectionTypeLoadException == null)
             {
-                TryHandleHttpError(exception);
+                return false;
             }
+
+            foreach (var loaderException in reflectionTypeLoadException.LoaderExceptions)
+            {
+                Trace.TraceError("Exception during initialization: " + loaderException);
+            }
+            
+            return true;
         }
 
         private void TryHandleHttpError(Exception exception)
