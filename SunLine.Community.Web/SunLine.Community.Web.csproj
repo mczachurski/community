@@ -1387,6 +1387,10 @@
       <Project>{D7308DA3-05FD-408E-851C-266E6409E913}</Project>
       <Name>SunLine.Community.Repositories</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SunLine.Community.Resources\SunLine.Community.Resources.csproj">
+      <Project>{83aeeb32-4d17-4115-bb4a-7fe497a9e5a4}</Project>
+      <Name>SunLine.Community.Resources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SunLine.Community.Services\SunLine.Community.Services.csproj">
       <Project>{53DC3ED6-8016-44AA-8A85-039D01665A0C}</Project>
       <Name>SunLine.Community.Services</Name>

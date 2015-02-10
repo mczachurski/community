@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using SunLine.Community.Common;
 using SunLine.Community.Entities.Core;
 using SunLine.Community.Repositories.Infrastructure;
+using SunLine.Community.Resources.Titles;
 using SunLine.Community.Services.Core;
 using SunLine.Community.Web.SessionContext;
 using SunLine.Community.Web.ViewModels.Messages;
@@ -66,11 +67,11 @@ namespace SunLine.Community.Web.Controllers
             if (message != null)
             {
                 _unitOfWork.Commit();
-                TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateSuccess("Your speech has been created.");
+                TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateSuccess(SpeechesMessage.SpeechHasBeenCreated);
                 return RedirectToActionPermanent("Edit", new { @id = message.Id });
             }
 
-            TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateError("Your speech has not been created. Try again.");
+            TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateError(SpeechesMessage.SpeechHasNotBeenCreated);
             return View(model);
         }
 
@@ -101,11 +102,11 @@ namespace SunLine.Community.Web.Controllers
             if (message != null)
             {
                 _unitOfWork.Commit();
-                TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateSuccess("Your speech has been saved.");
+                TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateSuccess(SpeechesMessage.SpeechHasBeenSaved);
                 return RedirectToActionPermanent("Edit", new { @id = message.Id });
             }
 
-            TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateError("Your speech has not been saved. Try again.");
+            TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateError(SpeechesMessage.SpeechHasNotBeenSaved);
             return View(model);
         }
     }

@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.Mvc;
 using SunLine.Community.Entities.Core;
 using SunLine.Community.Repositories.Infrastructure;
+using SunLine.Community.Resources.Titles;
 using SunLine.Community.Services.Core;
 using SunLine.Community.Web.Common;
 using SunLine.Community.Web.Extensions;
@@ -60,7 +61,7 @@ namespace SunLine.Community.Web.Controllers
                 return Json(new { @success = true, @view = mindView, messageId = message.Id });
             }
 
-            return Json(new { @success = false, @error = "Some data are incorrect." });
+            return Json(new { @success = false, @error = ErrorMessage.IncorrectData });
         }
 
         [HttpPost]
@@ -88,7 +89,7 @@ namespace SunLine.Community.Web.Controllers
                 return Json(new { @success = true, @commentedMessageId = commentedMessageId, @commentedActionView = commentedActionView, @commentView = commentView });
             }
 
-            return Json(new { @success = false, @error = "Some data are incorrect." });
+            return Json(new { @success = false, @error = ErrorMessage.IncorrectData });
         }
 
         [HttpPost]
@@ -109,7 +110,7 @@ namespace SunLine.Community.Web.Controllers
                 return Json(new { @success = true, @view = mindView, messageId = message.Id });
             }
 
-            return Json(new { @success = false, @error = "Some data are incorrect." });
+            return Json(new { @success = false, @error = ErrorMessage.IncorrectData });
         }
 
         [HttpPost]
@@ -135,7 +136,7 @@ namespace SunLine.Community.Web.Controllers
             var message = _messageService.FindById(messageId);
             if (message == null)
             {
-                return Json(new { @success = false, @error = "Some data are incorrect." });
+                return Json(new { @success = false, @error = ErrorMessage.IncorrectData });
             }
 
             _messageFavouriteService.ToggleFavourite(this.CurrentUserSessionContext().UserId, message);
@@ -155,7 +156,7 @@ namespace SunLine.Community.Web.Controllers
             var message = _messageService.FindById(messageId);
             if (message == null)
             {
-                return Json(new { @success = false, @error = "Some data are incorrect." });
+                return Json(new { @success = false, @error = ErrorMessage.IncorrectData });
             }
 
             var user = _userService.FindById(this.CurrentUserSessionContext().UserId);
@@ -176,7 +177,7 @@ namespace SunLine.Community.Web.Controllers
             var message = _messageService.FindById(messageId);
             if (message == null)
             {
-                return Json(new { @success = false, @error = "Some data are incorrect." });
+                return Json(new { @success = false, @error = ErrorMessage.IncorrectData });
             }
 
             _userMessageService.ToggleBubble(this.CurrentUserSessionContext().UserId, message);

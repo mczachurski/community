@@ -10,6 +10,7 @@ using Microsoft.Owin.Security;
 using Newtonsoft.Json;
 using SunLine.Community.Common;
 using SunLine.Community.Entities.Core;
+using SunLine.Community.Resources.Titles;
 using SunLine.Community.Services.Core;
 using SunLine.Community.Services.Dict;
 using SunLine.Community.Web.SessionContext;
@@ -86,13 +87,13 @@ namespace SunLine.Community.Web.Controllers
             var user = await UserManager.FindByNameAsync(model.UserName);
             if (user == null)
             {
-                ModelState.AddModelError("", "Invalid login attempt.");
+                ModelState.AddModelError(string.Empty, AccountMessage.InvalidLoginAttempt);
                 return View(model);
             }
 
             if (!await UserManager.IsEmailConfirmedAsync(user.Id))
             {
-                ModelState.AddModelError("", "You need to confirm your email.");
+                ModelState.AddModelError(string.Empty, AccountMessage.EmailNotConfirmed);
                 return View(model);
             }
 
@@ -110,17 +111,12 @@ namespace SunLine.Community.Web.Controllers
                 {
                     return View("Lockout");
                 }
-                case SignInStatus.RequiresVerification:
-                {
-                    return RedirectToAction("SendCode", new {ReturnUrl = returnUrl, RememberMe = model.RememberMe});
-                }
                 default:
                 {
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, AccountMessage.InvalidLoginAttempt);
                     return View(model);
                 }
             }
-
         }
             
         [HttpGet]
@@ -141,7 +137,7 @@ namespace SunLine.Community.Web.Controllers
         {
             if (!IsRecaptchaValid())
             {
-                ModelState.AddModelError("", "Are you sure that you are human?");
+                ModelState.AddModelError(string.Empty, AccountMessage.CaptchaValidation);
             }
 
             if (ModelState.IsValid)
@@ -167,10 +163,13 @@ namespace SunLine.Community.Web.Controllers
                     if (Request.Url != null)
                     {
                         var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                        _emailService.SendEmail(user.Email, user.FirstName, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                        string emailTitle = AccountMessage.ConfirmYourEmailTitle;
+                        string emailBody = string.Format(AccountMessage.ConfirmYourEmailBody, callbackUrl);
+                        _emailService.SendEmail(user.Email, user.FirstName, emailTitle, emailBody);
                     }
 
-                    TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateSuccess("Your account has been created. Check email for further instructions.");
+                    TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateSuccess(AccountMessage.AccountHasBeenCreated);
                     return RedirectToAction("Index", "Home");
                 }
 
@@ -221,7 +220,10 @@ namespace SunLine.Community.Web.Controllers
                 if (Request.Url != null)
                 {
                     var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    _emailService.SendEmail(user.Email, user.FirstName, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    string emailTitle = AccountMessage.ResetPasswordEmailTitle;
+                    string emailBody = string.Format(AccountMessage.ResetPasswordEmailBody, callbackUrl);
+                    _emailService.SendEmail(user.Email, user.FirstName, emailTitle, emailBody);
                     return RedirectToAction("ForgotPasswordConfirmation", "Account");
                 }
             }

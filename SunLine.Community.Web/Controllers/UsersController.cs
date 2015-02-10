@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using SunLine.Community.Entities.Core;
 using SunLine.Community.Entities.Dict;
 using SunLine.Community.Repositories.Infrastructure;
+using SunLine.Community.Resources.Titles;
 using SunLine.Community.Services.Core;
 using SunLine.Community.Services.Dict;
 using SunLine.Community.Web.SessionContext;
@@ -207,8 +208,8 @@ namespace SunLine.Community.Web.Controllers
 
                 return Json(new { @success = true });
             }
-                
-            return Json(new { @success = false, @error = "Some data are incorrect." });
+
+            return Json(new { @success = false, @error = ErrorMessage.IncorrectData });
         }
 
         [HttpPost]
@@ -258,7 +259,7 @@ namespace SunLine.Community.Web.Controllers
             _userService.Update(user);
             _unitOfWork.Commit();
 
-            TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateSuccess("Your cover has been saved.");
+            TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateSuccess(UsersMessage.CoverHasBeenSaved);
             EditProfileViewModel model = _usersViewModelService.CreateEditProfileViewModel(userId);
             return View("Edit", model);
         }

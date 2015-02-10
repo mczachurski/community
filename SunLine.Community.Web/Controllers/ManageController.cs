@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using SunLine.Community.Common;
+using SunLine.Community.Resources.Titles;
 using SunLine.Community.Web.ViewModels.Manage;
 
 namespace SunLine.Community.Web.Controllers
@@ -65,8 +66,8 @@ namespace SunLine.Community.Web.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                    
-                TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateSuccess("Your password has been changed.");
+
+                TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateSuccess(ManageMessage.PasswordHasBeenChanged);
                 return View("Index", new IndexViewModel());
             }
 
@@ -80,11 +81,11 @@ namespace SunLine.Community.Web.Controllers
         {
             if (isAccountEnabled)
             {
-                TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateSuccess("Your account has been enabled.");
+                TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateSuccess(ManageMessage.AccountHasBeenEnabled);
             }
             else
             {
-                TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateSuccess("Your account has been disabled.");
+                TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateSuccess(ManageMessage.AccountHasBeenDisabled);
             }
 
             return View("Index", new IndexViewModel());
