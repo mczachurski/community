@@ -12,7 +12,8 @@ SunLine.Community.UserProfile = function () {
 		AntiForgeryToken: null,
 		ObserversId: '#user-observers',
 		ObservingId: '#user-observing',
-		TimelineId: '#user-timeline'
+		TimelineId: '#user-timeline',
+	    ErrorWhileRequestMessage: null
 	};
 
 	var init = function (options) {
@@ -123,7 +124,7 @@ SunLine.Community.UserProfile = function () {
 			showTimelinePlaceholder();
         })
 		.fail(function() {
-    		webApp.ShowMessage(false, "Upppss... An error occurred while request. Please try again.", null);
+    		webApp.ShowMessage(false, settings.ErrorWhileRequestMessage, null);
   		})
   		.always(function() {
     		webApp.HidePageLoader();
@@ -144,7 +145,7 @@ SunLine.Community.UserProfile = function () {
 			showObserversPlaceholder();
         })
 		.fail(function() {
-    		webApp.ShowMessage(false, "Upppss... An error occurred while request. Please try again.", null);
+		    webApp.ShowMessage(false, settings.ErrorWhileRequestMessage, null);
   		})
   		.always(function() {
     		webApp.HidePageLoader();
@@ -165,7 +166,7 @@ SunLine.Community.UserProfile = function () {
 			showObservingPlaceholder();
         })
 		.fail(function() {
-    		webApp.ShowMessage(false, "Upppss... An error occurred while request. Please try again.", null);
+		    webApp.ShowMessage(false, settings.ErrorWhileRequestMessage, null);
   		})
   		.always(function() {
     		webApp.HidePageLoader();

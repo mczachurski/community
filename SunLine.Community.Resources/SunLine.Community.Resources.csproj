@@ -40,15 +40,50 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Titles\ErrorMessage.pl.Designer.cs">
-      <DependentUpon>ErrorMessage.pl.resx</DependentUpon>
+    <Compile Include="Titles\AccountMessage.pl.Designer.cs">
+      <DependentUpon>AccountMessage.pl.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Titles\ErrorMessage.Designer.cs">
+    <Compile Include="Titles\AccountMessage.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ErrorMessage.resx</DependentUpon>
+      <DependentUpon>AccountMessage.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Titles\SharedMessage.pl.Designer.cs">
+      <DependentUpon>SharedMessage.pl.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Titles\SharedMessage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SharedMessage.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Titles\ManageMessage.pl.Designer.cs">
+      <DependentUpon>ManageMessage.pl.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Titles\ManageMessage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManageMessage.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Titles\SpeechesMessage.pl.Designer.cs">
+      <DependentUpon>SpeechesMessage.pl.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Titles\SpeechesMessage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpeechesMessage.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Titles\UsersMessage.pl.Designer.cs">
+      <DependentUpon>UsersMessage.pl.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Titles\UsersMessage.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -57,13 +92,41 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Titles\ErrorMessage.pl.resx">
+    <EmbeddedResource Include="Titles\AccountMessage.pl.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ErrorMessage.pl.Designer.cs</LastGenOutput>
+      <LastGenOutput>AccountMessage.pl.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Titles\ErrorMessage.resx">
+    <EmbeddedResource Include="Titles\AccountMessage.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ErrorMessage.Designer.cs</LastGenOutput>
+      <LastGenOutput>AccountMessage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Titles\SharedMessage.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SharedMessage.pl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Titles\SharedMessage.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SharedMessage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Titles\ManageMessage.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ManageMessage.pl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Titles\ManageMessage.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ManageMessage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Titles\SpeechesMessage.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SpeechesMessage.pl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Titles\SpeechesMessage.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SpeechesMessage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Titles\UsersMessage.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UsersMessage.pl.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Titles\UsersMessage.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

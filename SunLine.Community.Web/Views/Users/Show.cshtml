@@ -1,4 +1,5 @@
 ﻿@using SunLine.Community.Web.Extensions
+@using SunLine.Community.Resources.Titles
 @model SunLine.Community.Web.ViewModels.Users.ProfileViewModel
 
 @{
@@ -24,30 +25,47 @@
 
     <script type="text/javascript">
 
-        var userMessage = new SunLine.Community.UserMessage();
-        userMessage.Init({
-            TransmitUrl: '@Url.Action("Transmit", "Messages")',
-            FavouriteUrl: '@Url.Action("Favourite", "Messages")',
-            FavouriteCommentUrl: '@Url.Action("FavouriteComment", "Messages")',
-            ToggleConnectionUrl: '@Url.Action("ToggleConnection", "Users")',
-            PopoverUrl: '@Url.Action("Popover", "Users")',
-            BubbleUrl: '@Url.Action("Bubble", "Messages")',
-            DeleteMessageUrl: '@Url.Action("Delete", "Messages")'
-        });
+    var userMessage = new SunLine.Community.UserMessage();
+    userMessage.Init({
+        TransmitUrl: '@Url.Action("Transmit", "Messages")',
+        FavouriteUrl: '@Url.Action("Favourite", "Messages")',
+        FavouriteCommentUrl: '@Url.Action("FavouriteComment", "Messages")',
+        ToggleConnectionUrl: '@Url.Action("ToggleConnection", "Users")',
+        PopoverUrl: '@Url.Action("Popover", "Users")',
+        BubbleUrl: '@Url.Action("Bubble", "Messages")',
+        DeleteMessageUrl: '@Url.Action("Delete", "Messages")',
+        ErrorWhileSendingTransmitMessage: '@SpeechesMessage.ErrorWhileSendingTransmit',
+        MessageWasRemovedMessage: '@SpeechesMessage.MessageWasRemoved',
+        ErrorWhileDeletingMessage: '@SpeechesMessage.ErrorWhileDeletingMessage',
+        ErrorWhileBubblingMessage: '@SpeechesMessage.ErrorWhileBubbling',
+        ErrorWhileFavouriteMessage: '@SpeechesMessage.ErrorWhileFavourite',
+        ErrorWhileFavouriteCommentMessage: '@SpeechesMessage.ErrorWhileFavouriteComment',
+        ErrorWhileAddingCommentMessage: '@SpeechesMessage.ErrorWhileAddingComment',
+        ErrorWhileAddingMindMessage: '@SpeechesMessage.ErrorWhileAddingMind',
+        ErrorWhileChangingConnectionMessage: '@UsersMessage.ErrorWhileChangingConnection',
+        ConnectionWasCreatedMessage: '@UsersMessage.ConnectionWasCreated',
+        ConnectionWasRemovedMessage: '@UsersMessage.ConnectionWasRemoved',
+        ErrorWhilePublishSpeechMessage: '@SpeechesMessage.ErrorWhilePublishSpeech',
+        SpeechWasPublishedMessage: '@SpeechesMessage.SpeechWasPublished'
+    });
 
-        var userProfile = new SunLine.Community.UserProfile();
-        userProfile.Init({
-        	UserId: '@Model.User.Id',
-            ToggleConnectionUrl: '@Url.Action("ToggleConnection", "Users")',
-            TimelineUrl: '@Url.Action("TimelineAjax", "Users")',
-            ObserversUrl: '@Url.Action("ObserversAjax", "Users")',
-            ObservingUrl: '@Url.Action("ObservingAjax", "Users")'
-        });
+    var userProfile = new SunLine.Community.UserProfile();
+    userProfile.Init({
+        UserId: '@Model.User.Id',
+        ToggleConnectionUrl: '@Url.Action("ToggleConnection", "Users")',
+        TimelineUrl: '@Url.Action("TimelineAjax", "Users")',
+        ObserversUrl: '@Url.Action("ObserversAjax", "Users")',
+        ObservingUrl: '@Url.Action("ObservingAjax", "Users")',
+        ErrorWhileRequestMessage: '@SharedMessage.ErrorWhileRequest'
+    });
 
-        var userConnection = new SunLine.Community.UserConnection();
-        userConnection.Init({
-            ToggleConnectionUrl: '@Url.Action("ToggleConnection", "Users")'
-        });
+    var userConnection = new SunLine.Community.UserConnection();
+    userConnection.Init({
+        ToggleConnectionUrl: '@Url.Action("ToggleConnection", "Users")',
+        ConnectionWasCreatedMessage: '@UsersMessage.ConnectionWasCreated',
+        ConnectionWasRemovedMessage: '@UsersMessage.ConnectionWasRemoved',
+        ErrorWhileChangingConnectionMessage: '@UsersMessage.ErrorWhileChangingConnection'
+    });
 
-    </script>
+</script>
 }

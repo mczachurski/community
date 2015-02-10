@@ -14,7 +14,20 @@ SunLine.Community.UserMessage = function () {
         DeleteMessageUrl: null,
         FileUploadUrl: null,
         PublishMessageUrl: null,
-        AntiForgeryToken: null
+        AntiForgeryToken: null,
+        ErrorWhileSendingTransmitMessage: null,
+        MessageWasRemovedMessage: null,
+        ErrorWhileDeletingMessage: null,
+        ErrorWhileBubblingMessage: null,
+        ErrorWhileFavouriteMessage: null,
+        ErrorWhileFavouriteCommentMessage: null,
+        ErrorWhileAddingCommentMessage: null,
+        ErrorWhileAddingMindMessage: null,
+        ErrorWhileChangingConnectionMessage: null,
+        ConnectionWasCreatedMessage: null,
+        ConnectionWasRemovedMessage: null,
+        ErrorWhilePublishSpeechMessage: null,
+        SpeechWasPublishedMessage: null
     };
 
     var dropzone = null;
@@ -96,13 +109,13 @@ SunLine.Community.UserMessage = function () {
                 if (result.error) {
                     webApp.ShowMessage(false, result.error, null);
                 } else {
-                    webApp.ShowMessage(false, "Upppss... An error occurred while reporting a vehicle. Please try again.", null);
+                    webApp.ShowMessage(false, settings.ErrorWhileSendingTransmitMessage, null);
                 }
             }
 
         })
         .fail(function() {
-    		webApp.ShowMessage(false, "Upppss... An error occurred while send transmit. Please try again.", null);
+            webApp.ShowMessage(false, settings.ErrorWhileSendingTransmitMessage, null);
   		})
   		.always(function() {
     		webApp.HidePageLoader();
@@ -129,20 +142,20 @@ SunLine.Community.UserMessage = function () {
             if (result.success) {
                 
                 $('#delete-confirm').modal('hide');
-                webApp.ShowMessage(true, "Mind was removed.", null);
+                webApp.ShowMessage(true, settings.MessageWasRemovedMessage, null);
 				deleteMessageCallback(messageIdToDelete);
 
             } else {
                 if (result.error) {
                     webApp.ShowMessage(false, result.error, null);
                 } else {
-                    webApp.ShowMessage(false, "Upppss... An error occurred while reporting a vehicle. Please try again.", null);
+                    webApp.ShowMessage(false, settings.ErrorWhileDeletingMessage, null);
                 }
             }
 
         })
         .fail(function() {
-    		webApp.ShowMessage(false, "Upppss... An error occurred while delete message. Please try again.", null);
+            webApp.ShowMessage(false, settings.ErrorWhileDeletingMessage, null);
   		})
   		.always(function() {
     		$("#delete-loader").css("display", "none");
@@ -170,12 +183,12 @@ SunLine.Community.UserMessage = function () {
                 if (result.error) {
                     webApp.ShowMessage(false, result.error, null);
                 } else {
-                    webApp.ShowMessage(false, "Upppss... An error occurred while reporting a vehicle. Please try again.", null);
+                    webApp.ShowMessage(false, settings.ErrorWhileBubblingMessage, null);
                 }
             }
         })
         .fail(function() {
-    		webApp.ShowMessage(false, "Upppss... An error occurred while bubbling. Please try again.", null);
+            webApp.ShowMessage(false, settings.ErrorWhileBubblingMessage, null);
   		})
   		.always(function() {
     		webApp.HidePageLoader();
@@ -202,12 +215,12 @@ SunLine.Community.UserMessage = function () {
                 if (result.error) {
                     webApp.ShowMessage(false, result.error, null);
                 } else {
-                    webApp.ShowMessage(false, "Upppss... An error occurred while reporting a vehicle. Please try again.", null);
+                    webApp.ShowMessage(false, settings.ErrorWhileFavouriteMessage, null);
                 }
             }
         })
         .fail(function() {
-    		webApp.ShowMessage(false, "Upppss... An error occurred while favourite message. Please try again.", null);
+            webApp.ShowMessage(false, settings.ErrorWhileFavouriteMessage, null);
   		})
   		.always(function() {
     		webApp.HidePageLoader();
@@ -234,13 +247,13 @@ SunLine.Community.UserMessage = function () {
                 if (result.error) {
                     webApp.ShowMessage(false, result.error, null);
                 } else {
-                    webApp.ShowMessage(false, "Upppss... An error occurred while reporting a vehicle. Please try again.", null);
+                    webApp.ShowMessage(false, settings.ErrorWhileFavouriteCommentMessage, null);
                 }
             }
 
         })
         .fail(function() {
-    		webApp.ShowMessage(false, "Upppss... An error occurred while favourite comment. Please try again.", null);
+            webApp.ShowMessage(false, settings.ErrorWhileFavouriteCommentMessage, null);
   		})
   		.always(function() {
     		webApp.HidePageLoader();
@@ -258,7 +271,7 @@ SunLine.Community.UserMessage = function () {
     };
 
     var onFailureCreateComment = function () {
-        webApp.ShowMessage(false, "Upppss... An error occurred while adding comment. Please try again.", null);
+        webApp.ShowMessage(false, settings.ErrorWhileAddingCommentMessage, null);
     };
 
     var onSuccessCreateComment = function (result) {
@@ -287,7 +300,7 @@ SunLine.Community.UserMessage = function () {
             if (result.error) {
                 webApp.ShowMessage(false, result.error, null);
             } else {
-                webApp.ShowMessage(false, "Upppss... An error occurred while adding comment. Please try again.", null);
+                webApp.ShowMessage(false, settings.ErrorWhileAddingCommentMessage, null);
             }
         }
     };
@@ -320,13 +333,13 @@ SunLine.Community.UserMessage = function () {
             if (result.error) {
                 webApp.ShowMessage(false, result.error, null);
             } else {
-                webApp.ShowMessage(false, "Upppss... An error occurred while adding mind. Please try again.", null);
+                webApp.ShowMessage(false, settings.ErrorWhileAddingMindMessage, null);
             }
         }
     };
 
     var onFailureCreateMind = function () {
-        webApp.ShowMessage(false, "Upppss... An error occurred while adding mind. Please try again.", null);
+        webApp.ShowMessage(false, settings.ErrorWhileAddingMindMessage, null);
     };
 
     var onBeginCreateMind = function () {
@@ -411,13 +424,13 @@ SunLine.Community.UserMessage = function () {
             if (result.error) {
                 webApp.ShowMessage(false, result.error, null);
             } else {
-                webApp.ShowMessage(false, "Upppss... An error occurred while adding mind. Please try again.", null);
+                webApp.ShowMessage(false, settings.ErrorWhileAddingMindMessage, null);
             }
         }
     };
 
     var onFailureCreateQuote = function () {
-        webApp.ShowMessage(false, "Upppss... An error occurred while adding mind. Please try again.", null);
+        webApp.ShowMessage(false, settings.ErrorWhileAddingMindMessage, null);
     };
 
     var onBeginCreateQuote = function () {
@@ -448,19 +461,24 @@ SunLine.Community.UserMessage = function () {
                 avatars.data('content', '');
                 avatars.popover('destroy');
 
-                webApp.ShowMessage(true, "Connection between users was modified.", null);
+                if (result.usersHasConnection) {
+                    webApp.ShowMessage(true, settings.ConnectionWasCreatedMessage, null);
+                }
+                else {
+                    webApp.ShowMessage(true, settings.ConnectionWasRemovedMessage, null);
+                }
 
             } else {
                 if (result.error) {
                     webApp.ShowMessage(false, result.error, null);
                 } else {
-                    webApp.ShowMessage(false, "Upppss... An error occurred while change connection. Please try again.", null);
+                    webApp.ShowMessage(false, settings.ErrorWhileChangingConnectionMessage, null);
                 }
             }
 
         })
         .fail(function() {
-    		webApp.ShowMessage(false, "Upppss... An error occurred while toggle connection. Please try again.", null);
+            webApp.ShowMessage(false, settings.ErrorWhileChangingConnectionMessage, null);
   		})
   		.always(function() {
     		webApp.HidePageLoader();
@@ -519,20 +537,20 @@ SunLine.Community.UserMessage = function () {
             if (result.success) {
 
             	$('#publish-confirm').modal('hide');
-            	webApp.ShowMessage(true, "Speech was published.", null);
+            	webApp.ShowMessage(true, settings.SpeechWasPublishedMessage, null);
 				publishMessageCallback(messageIdToPublish);
 
             } else {
                 if (result.error) {
                     webApp.ShowMessage(false, result.error, null);
                 } else {
-                    webApp.ShowMessage(false, "Upppss... An error occurred while publish speech. Please try again.", null);
+                    webApp.ShowMessage(false, settings.ErrorWhilePublishSpeechMessage, null);
                 }
             }
 
         })
         .fail(function() {
-    		webApp.ShowMessage(false, "Upppss... An error occurred while publish speech. Please try again.", null);
+            webApp.ShowMessage(false, settings.ErrorWhilePublishSpeechMessage, null);
   		})
   		.always(function() {
 	        $("#publish-loader").css("display", "none");

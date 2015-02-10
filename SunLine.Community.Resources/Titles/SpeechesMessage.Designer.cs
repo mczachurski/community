@@ -61,6 +61,87 @@ namespace SunLine.Community.Resources.Titles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Upppss... An error occurred while adding comment. Please try again..
+        /// </summary>
+        public static string ErrorWhileAddingComment {
+            get {
+                return ResourceManager.GetString("ErrorWhileAddingComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upppss... An error occurred while adding mind. Please try again..
+        /// </summary>
+        public static string ErrorWhileAddingMind {
+            get {
+                return ResourceManager.GetString("ErrorWhileAddingMind", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upppss... An error occurred while bubbling. Please try again..
+        /// </summary>
+        public static string ErrorWhileBubbling {
+            get {
+                return ResourceManager.GetString("ErrorWhileBubbling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upppss... An error occurred while delete message. Please try again..
+        /// </summary>
+        public static string ErrorWhileDeletingMessage {
+            get {
+                return ResourceManager.GetString("ErrorWhileDeletingMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upppss... An error occurred while favourite message. Please try again..
+        /// </summary>
+        public static string ErrorWhileFavourite {
+            get {
+                return ResourceManager.GetString("ErrorWhileFavourite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upppss... An error occurred while favourite comment. Please try again..
+        /// </summary>
+        public static string ErrorWhileFavouriteComment {
+            get {
+                return ResourceManager.GetString("ErrorWhileFavouriteComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upppss... An error occurred while publish speech. Please try again..
+        /// </summary>
+        public static string ErrorWhilePublishSpeech {
+            get {
+                return ResourceManager.GetString("ErrorWhilePublishSpeech", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upppss... An error occurred while send transmit. Please try again..
+        /// </summary>
+        public static string ErrorWhileSendingTransmit {
+            get {
+                return ResourceManager.GetString("ErrorWhileSendingTransmit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Message was removed..
+        /// </summary>
+        public static string MessageWasRemoved {
+            get {
+                return ResourceManager.GetString("MessageWasRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your speech has been created..
         /// </summary>
         public static string SpeechHasBeenCreated {
@@ -93,6 +174,15 @@ namespace SunLine.Community.Resources.Titles {
         public static string SpeechHasNotBeenSaved {
             get {
                 return ResourceManager.GetString("SpeechHasNotBeenSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speech was published..
+        /// </summary>
+        public static string SpeechWasPublished {
+            get {
+                return ResourceManager.GetString("SpeechWasPublished", resourceCulture);
             }
         }
     }

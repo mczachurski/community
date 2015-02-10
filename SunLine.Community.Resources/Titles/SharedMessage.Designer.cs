@@ -22,14 +22,14 @@ namespace SunLine.Community.Resources.Titles {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ErrorMessage {
+    public class SharedMessage {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ErrorMessage() {
+        internal SharedMessage() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace SunLine.Community.Resources.Titles {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SunLine.Community.Resources.Titles.ErrorMessage", typeof(ErrorMessage).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SunLine.Community.Resources.Titles.SharedMessage", typeof(SharedMessage).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,15 @@ namespace SunLine.Community.Resources.Titles {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upppss... An error occurred while request. Please try again..
+        /// </summary>
+        public static string ErrorWhileRequest {
+            get {
+                return ResourceManager.GetString("ErrorWhileRequest", resourceCulture);
             }
         }
         

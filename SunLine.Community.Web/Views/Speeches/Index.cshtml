@@ -1,4 +1,6 @@
-﻿@using SunLine.Community.Web.ViewModels.Messages;
+﻿@using SunLine.Community.Resources.Titles
+@using SunLine.Community.Web.ViewModels.Messages
+
 @model IList<SpeechViewModel>
 
 @{
@@ -69,7 +71,20 @@
         userMessage.Init({
 			FileUploadUrl: '@Url.Action("SaveUploadedFile", "Messages")',
             DeleteMessageUrl: '@Url.Action("Delete", "Messages")',
-            PublishMessageUrl: '@Url.Action("Publish", "Messages")'
+            PublishMessageUrl: '@Url.Action("Publish", "Messages")',
+            ErrorWhileSendingTransmitMessage: '@SpeechesMessage.ErrorWhileSendingTransmit',
+            MessageWasRemovedMessage: '@SpeechesMessage.MessageWasRemoved',
+            ErrorWhileDeletingMessage: '@SpeechesMessage.ErrorWhileDeletingMessage',
+            ErrorWhileBubblingMessage: '@SpeechesMessage.ErrorWhileBubbling',
+            ErrorWhileFavouriteMessage: '@SpeechesMessage.ErrorWhileFavourite',
+            ErrorWhileFavouriteCommentMessage: '@SpeechesMessage.ErrorWhileFavouriteComment',
+            ErrorWhileAddingCommentMessage: '@SpeechesMessage.ErrorWhileAddingComment',
+            ErrorWhileAddingMindMessage: '@SpeechesMessage.ErrorWhileAddingMind',
+            ErrorWhileChangingConnectionMessage: '@UsersMessage.ErrorWhileChangingConnection',
+            ConnectionWasCreatedMessage: '@UsersMessage.ConnectionWasCreated',
+            ConnectionWasRemovedMessage: '@UsersMessage.ConnectionWasRemoved',
+            ErrorWhilePublishSpeechMessage: '@SpeechesMessage.ErrorWhilePublishSpeech',
+            SpeechWasPublishedMessage: '@SpeechesMessage.SpeechWasPublished'
         });
 
         userMessage.SetPublishMessageCallback(function(messageId) {

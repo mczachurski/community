@@ -117,7 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CategoriesSavedSuccessfully" xml:space="preserve">
+    <value>Kategorie zostały zapisane.</value>
+  </data>
+  <data name="ConnectionWasCreated" xml:space="preserve">
+    <value>Rozpocząłeś obserwowanie użytkownika.</value>
+  </data>
+  <data name="ConnectionWasRemoved" xml:space="preserve">
+    <value>Zakończyłeś obserwować użytkownika.</value>
+  </data>
   <data name="CoverHasBeenSaved" xml:space="preserve">
-    <value>Twoja fotografia została zapisana.</value>
+    <value>Fotografia została zapisana.</value>
+  </data>
+  <data name="ErrorWhileChangingConnection" xml:space="preserve">
+    <value>Upppss... Podczas zapisywania połączenia wystąił błąd. Proszę spróbować ponownie.</value>
+  </data>
+  <data name="ErrorWhileSavingCategories" xml:space="preserve">
+    <value>Upppss... Podczas zapisywania kategorii wystąił błąd. Proszę spróbować ponownie.</value>
+  </data>
+  <data name="ErrorWhileSavingCover" xml:space="preserve">
+    <value>Upppss... Podczas zapisywania fotografii wystąił błąd. Proszę spróbować ponownie.</value>
+  </data>
+  <data name="ErrorWhileSavingProfile" xml:space="preserve">
+    <value>Upppss... Podczas zapisywania profilu wystąił błąd. Proszę spróbować ponownie.</value>
+  </data>
+  <data name="ProfileSavedSuccessfully" xml:space="preserve">
+    <value>Profil został zapisany.</value>
   </data>
 </root>

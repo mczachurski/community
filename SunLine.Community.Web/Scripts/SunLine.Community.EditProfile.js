@@ -5,7 +5,13 @@ SunLine.Community.EditProfile = SunLine.Community.EditProfile || {};
 SunLine.Community.EditProfile = function () {
 
 	var settings = {
-		AntiForgeryToken: null
+	    AntiForgeryToken: null,
+	    ErrorWhileSavingProfileMessage: null,
+	    ProfileSavedSuccessfullyMessage: null,
+	    ErrorWhileSavingCategoriesMessage: null,
+	    CategoriesSavedSuccessfullyMessage: null,
+	    ErrorWhileSavingCoverMessage: null,
+	    CoverSavedSuccessfullyMessage: null
 	};
 
 	var init = function (options) {
@@ -24,20 +30,20 @@ SunLine.Community.EditProfile = function () {
     };
 
     var onFailureSaveProfile = function () {
-        webApp.ShowMessage(false, "Upppss... An error occurred while saving profile. Please try again.", null);
+        webApp.ShowMessage(false, settings.ErrorWhileSavingProfileMessage, null);
     };
 
     var onSuccessSaveProfile = function (result) {
 
         if (result.success) {
 
-			webApp.ShowMessage(true, "Profile was saved successfuly.", null);
+			webApp.ShowMessage(true, settings.ProfileSavedSuccessfullyMessage, null);
 
         } else {
             if (result.error) {
                 webApp.ShowMessage(false, result.error, null);
             } else {
-                webApp.ShowMessage(false, "Upppss... An error occurred while saving profile. Please try again.", null);
+                webApp.ShowMessage(false, settings.ErrorWhileSavingProfileMessage, null);
             }
         }
     };
@@ -53,20 +59,20 @@ SunLine.Community.EditProfile = function () {
     };
 
     var onFailureSaveCategories = function () {
-        webApp.ShowMessage(false, "Upppss... An error occurred while saving categories. Please try again.", null);
+        webApp.ShowMessage(false, settings.ErrorWhileSavingCategoriesMessage, null);
     };
 
     var onSuccessSaveCategories = function (result) {
 
         if (result.success) {
 
-			webApp.ShowMessage(true, "Categories was saved successfuly.", null);
+            webApp.ShowMessage(true, settings.CategoriesSavedSuccessfullyMessage, null);
 
         } else {
             if (result.error) {
                 webApp.ShowMessage(false, result.error, null);
             } else {
-                webApp.ShowMessage(false, "Upppss... An error occurred while saving categories. Please try again.", null);
+                webApp.ShowMessage(false, settings.ErrorWhileSavingCategoriesMessage, null);
             }
         }
     };
@@ -82,20 +88,20 @@ SunLine.Community.EditProfile = function () {
     };
 
     var onFailureSaveCover = function () {
-        webApp.ShowMessage(false, "Upppss... An error occurred while saving cover. Please try again.", null);
+        webApp.ShowMessage(false, settings.ErrorWhileSavingCoverMessage, null);
     };
 
     var onSuccessSaveCover = function (result) {
 
         if (result.success) {
 
-			webApp.ShowMessage(true, "Cover was saved successfuly.", null);
+            webApp.ShowMessage(true, settings.CoverSavedSuccessfullyMessage, null);
 
         } else {
             if (result.error) {
                 webApp.ShowMessage(false, result.error, null);
             } else {
-                webApp.ShowMessage(false, "Upppss... An error occurred while saving cover. Please try again.", null);
+                webApp.ShowMessage(false, settings.ErrorWhileSavingCoverMessage, null);
             }
         }
     };

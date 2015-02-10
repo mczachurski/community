@@ -6,7 +6,10 @@ SunLine.Community.UserConnection = function () {
 
 	var settings = {
 		ToggleConnectionUrl: null,
-		AntiForgeryToken: null
+		AntiForgeryToken: null,
+		ConnectionWasCreatedMessage: null,
+		ConnectionWasRemovedMessage: null,
+	    ErrorWhileChangingConnectionMessage: null
 	};
 
 	var init = function (options) {
@@ -39,6 +42,8 @@ SunLine.Community.UserConnection = function () {
             		$(sender).addClass('btn-danger');
 					$(sender).children('i').addClass('fa-remove');
 					$(sender).children('span').html('Stop observing');
+
+					webApp.ShowMessage(true, settings.ConnectionWasCreatedMessage, null);
             	}
             	else
             	{
@@ -47,21 +52,21 @@ SunLine.Community.UserConnection = function () {
             		$(sender).addClass(hasConnectionClass);
 					$(sender).children('i').addClass('fa-check');
 					$(sender).children('span').html('Start observing');
-            	}
 
-            	webApp.ShowMessage(true, "Connection between users was modified.", null);
+					webApp.ShowMessage(true, settings.ConnectionWasRemovedMessage, null);
+            	}
 
             } else {
             	if (result.error) {
             		webApp.ShowMessage(false, result.error, null);
             	} else {
-            		webApp.ShowMessage(false, "Upppss... An error occurred while change connection. Please try again.", null);
+            	    webApp.ShowMessage(false, settings.ErrorWhileChangingConnectionMessage, null);
             	}
             }
 
         })
 		.fail(function() {
-    		webApp.ShowMessage(false, "Upppss... An error occurred while change connection. Please try again.", null);
+		    webApp.ShowMessage(false, settings.ErrorWhileChangingConnectionMessage, null);
   		})
   		.always(function() {
     		webApp.HidePageLoader();

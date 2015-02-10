@@ -117,6 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ErrorWhileAddingComment" xml:space="preserve">
+    <value>Upppss... Podczas dodawania komentarza wystąił błąd. Proszę spróbować ponownie.</value>
+  </data>
+  <data name="ErrorWhileAddingMind" xml:space="preserve">
+    <value>Upppss... Podczas dodawania myśli wystąił błąd. Proszę spróbować ponownie.</value>
+  </data>
+  <data name="ErrorWhileBubbling" xml:space="preserve">
+    <value>Upppss... Podczas zapisywania bąbelkowania wystąił błąd. Proszę spróbować ponownie.</value>
+  </data>
+  <data name="ErrorWhileDeletingMessage" xml:space="preserve">
+    <value>Upppss... Podczas usuwania wiadomości wystąił błąd. Proszę spróbować ponownie.</value>
+  </data>
+  <data name="ErrorWhileFavourite" xml:space="preserve">
+    <value>Upppss... Podczas zapisywania ulubionej myśli wystąił błąd. Proszę spróbować ponownie.</value>
+  </data>
+  <data name="ErrorWhileFavouriteComment" xml:space="preserve">
+    <value>Upppss... Podczas zapisywania ulubionego komentarza wystąił błąd. Proszę spróbować ponownie.</value>
+  </data>
+  <data name="ErrorWhilePublishSpeech" xml:space="preserve">
+    <value>Upppss... Podczas publikowania przemówienia wystąił błąd. Proszę spróbować ponownie.</value>
+  </data>
+  <data name="ErrorWhileSendingTransmit" xml:space="preserve">
+    <value>Upppss... Podczas przekazywania myśli wystąił błąd. Proszę spróbować ponownie.</value>
+  </data>
+  <data name="MessageWasRemoved" xml:space="preserve">
+    <value>Wiadomość została usunięta.</value>
+  </data>
   <data name="SpeechHasBeenCreated" xml:space="preserve">
     <value>Przemówienie zostało utworzone.</value>
   </data>
@@ -124,9 +151,12 @@
     <value>Przemówienie zostało zapisane.</value>
   </data>
   <data name="SpeechHasNotBeenCreated" xml:space="preserve">
-    <value>Przemówienie nie zostało utworzone. Spróbuj ponownie.</value>
+    <value>Upppss... Podczas dodawania przemówienia wystąił błąd. Proszę spróbować ponownie.</value>
   </data>
   <data name="SpeechHasNotBeenSaved" xml:space="preserve">
-    <value>Przemówienie nie zostało zapisane. Spróbuj ponownie.</value>
+    <value>Upppss... Podczas zapisywania przemówienia wystąił błąd. Proszę spróbować ponownie.</value>
+  </data>
+  <data name="SpeechWasPublished" xml:space="preserve">
+    <value>Przemówienie zostało opublikowane.</value>
   </data>
 </root>

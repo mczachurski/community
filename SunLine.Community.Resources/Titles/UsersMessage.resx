@@ -117,7 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CoverHasBeenSaved" xml:space="preserve">
-    <value>Your cover has been saved.</value>
+  <data name="CategoriesSavedSuccessfully" xml:space="preserve">
+    <value>Categories was saved successfully.</value>
+  </data>
+  <data name="ConnectionWasCreated" xml:space="preserve">
+    <value>You starting observe the user.</value>
+  </data>
+  <data name="ConnectionWasRemoved" xml:space="preserve">
+    <value>You stopped observe the user.</value>
+  </data>
+  <data name="CoverSavedSuccessfully" xml:space="preserve">
+    <value>Cover was saved successfully.</value>
+  </data>
+  <data name="ErrorWhileChangingConnection" xml:space="preserve">
+    <value>Upppss... An error occurred while change connection. Please try again.</value>
+  </data>
+  <data name="ErrorWhileSavingCategories" xml:space="preserve">
+    <value>Upppss... An error occurred while saving categories. Please try again.</value>
+  </data>
+  <data name="ErrorWhileSavingCover" xml:space="preserve">
+    <value>Upppss... An error occurred while saving cover. Please try again.</value>
+  </data>
+  <data name="ErrorWhileSavingProfile" xml:space="preserve">
+    <value>Upppss... An error occurred while saving profile. Please try again.</value>
+  </data>
+  <data name="ProfileSavedSuccessfully" xml:space="preserve">
+    <value>Profile was saved successfully.</value>
   </data>
 </root>

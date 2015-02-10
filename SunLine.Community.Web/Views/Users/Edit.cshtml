@@ -1,4 +1,7 @@
-﻿@model SunLine.Community.Web.ViewModels.Users.EditProfileViewModel
+﻿@using SunLine.Community.Resources.Titles
+@using SunLine.Community.Entities.Core
+@model SunLine.Community.Web.ViewModels.Users.EditProfileViewModel
+
 @{
     ViewBag.Title = "Edit profile";
 }
@@ -40,28 +43,35 @@
     @Scripts.Render("~/bundles/select2")
 
     <script type="text/javascript">
-        var editProfile = new SunLine.Community.EditProfile();
-        editProfile.Init();
+    var editProfile = new SunLine.Community.EditProfile();
+    editProfile.Init({
+        ErrorWhileSavingProfileMessage: '@UsersMessage.ErrorWhileSavingProfile',
+        ProfileSavedSuccessfullyMessage: '@UsersMessage.ProfileSavedSuccessfully',
+        ErrorWhileSavingCategoriesMessage: '@UsersMessage.ErrorWhileSavingCategories',
+        CategoriesSavedSuccessfullyMessage: '@UsersMessage.CategoriesSavedSuccessfully',
+        ErrorWhileSavingCoverMessage: '@UsersMessage.ErrorWhileSavingCover',
+        CoverSavedSuccessfullyMessage: '@UsersMessage.CoverSavedSuccessfully'
+    });
 
-        $(function() {
-			$("#coverPatternName").select2({
-				placeholder: 'Select cover template',
-				allowClear: true,
-				minimumResultsForSearch: -1,
-				formatResult: function(cover)
-				{
-					return '<div style="background:url(@Url.Content("~/Content/images/covers/")' + cover.id + ') no-repeat center center;background-size:100%;display:inline-block;position:relative;width:40px;height:40px;margin-right: 10px;top:2px;"></div>' 
-						+ cover.text;
-				}
-			}).on('select2-open', function() {
-				// Adding Custom Scrollbar
-				$(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
-			})
-			.on("change", function(e) {
-				var imageSource = '@Url.Content("~/Content/images/covers/")' + e.val;
-	          	$("#selected-cover").attr("src", imageSource);
-	        });
-		});
+    $(function() {
+		$("#coverPatternName").select2({
+			placeholder: 'Select cover template',
+			allowClear: true,
+			minimumResultsForSearch: -1,
+			formatResult: function(cover)
+			{
+				return '<div style="background:url(@Url.Content("~/Content/images/covers/")' + cover.id + ') no-repeat center center;background-size:100%;display:inline-block;position:relative;width:40px;height:40px;margin-right: 10px;top:2px;"></div>'
+                + cover.text;
+        }
+        }).on('select2-open', function() {
+            // Adding Custom Scrollbar
+            $(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
+        })
+        .on("change", function(e) {
+            var imageSource = '@Url.Content("~/Content/images/covers/")' + e.val;
+            $("#selected-cover").attr("src", imageSource);
+        });
+    });
 
     </script>
 }    

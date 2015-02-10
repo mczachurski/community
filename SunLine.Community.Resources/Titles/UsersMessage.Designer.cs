@@ -61,11 +61,83 @@ namespace SunLine.Community.Resources.Titles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your cover has been saved..
+        ///   Looks up a localized string similar to Categories was saved successfully..
         /// </summary>
-        public static string CoverHasBeenSaved {
+        public static string CategoriesSavedSuccessfully {
             get {
-                return ResourceManager.GetString("CoverHasBeenSaved", resourceCulture);
+                return ResourceManager.GetString("CategoriesSavedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You starting observe the user..
+        /// </summary>
+        public static string ConnectionWasCreated {
+            get {
+                return ResourceManager.GetString("ConnectionWasCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You stopped observe the user..
+        /// </summary>
+        public static string ConnectionWasRemoved {
+            get {
+                return ResourceManager.GetString("ConnectionWasRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cover was saved successfully..
+        /// </summary>
+        public static string CoverSavedSuccessfully {
+            get {
+                return ResourceManager.GetString("CoverSavedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upppss... An error occurred while change connection. Please try again..
+        /// </summary>
+        public static string ErrorWhileChangingConnection {
+            get {
+                return ResourceManager.GetString("ErrorWhileChangingConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upppss... An error occurred while saving categories. Please try again..
+        /// </summary>
+        public static string ErrorWhileSavingCategories {
+            get {
+                return ResourceManager.GetString("ErrorWhileSavingCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upppss... An error occurred while saving cover. Please try again..
+        /// </summary>
+        public static string ErrorWhileSavingCover {
+            get {
+                return ResourceManager.GetString("ErrorWhileSavingCover", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upppss... An error occurred while saving profile. Please try again..
+        /// </summary>
+        public static string ErrorWhileSavingProfile {
+            get {
+                return ResourceManager.GetString("ErrorWhileSavingProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile was saved successfully..
+        /// </summary>
+        public static string ProfileSavedSuccessfully {
+            get {
+                return ResourceManager.GetString("ProfileSavedSuccessfully", resourceCulture);
             }
         }
     }

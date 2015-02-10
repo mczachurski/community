@@ -209,7 +209,7 @@ namespace SunLine.Community.Web.Controllers
                 return Json(new { @success = true });
             }
 
-            return Json(new { @success = false, @error = ErrorMessage.IncorrectData });
+            return Json(new { @success = false, @error = SharedMessage.IncorrectData });
         }
 
         [HttpPost]
@@ -259,7 +259,7 @@ namespace SunLine.Community.Web.Controllers
             _userService.Update(user);
             _unitOfWork.Commit();
 
-            TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateSuccess(UsersMessage.CoverHasBeenSaved);
+            TempData[ActionConfirmation.TempDataKey] = ActionConfirmation.CreateSuccess(UsersMessage.CoverSavedSuccessfully);
             EditProfileViewModel model = _usersViewModelService.CreateEditProfileViewModel(userId);
             return View("Edit", model);
         }

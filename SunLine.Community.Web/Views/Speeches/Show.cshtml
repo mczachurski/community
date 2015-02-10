@@ -2,6 +2,7 @@
 @using SunLine.Community.Common
 @using SunLine.Community.Entities.Core
 @using SunLine.Community.Web.Extensions
+@using SunLine.Community.Resources.Titles
 @model SunLine.Community.Web.ViewModels.Messages.MessageViewModel
 
 @{
@@ -68,7 +69,20 @@
             PopoverUrl: '@Url.Action("Popover", "Users")',
             BubbleUrl: '@Url.Action("Bubble", "Messages")',
             DeleteMessageUrl: '@Url.Action("Delete", "Messages")',
-            FileUploadUrl: '@Url.Action("SaveUploadedFile", "Messages")'
+            FileUploadUrl: '@Url.Action("SaveUploadedFile", "Messages")',
+            ErrorWhileSendingTransmitMessage: '@SpeechesMessage.ErrorWhileSendingTransmit',
+            MessageWasRemovedMessage: '@SpeechesMessage.MessageWasRemoved',
+            ErrorWhileDeletingMessage: '@SpeechesMessage.ErrorWhileDeletingMessage',
+            ErrorWhileBubblingMessage: '@SpeechesMessage.ErrorWhileBubbling',
+            ErrorWhileFavouriteMessage: '@SpeechesMessage.ErrorWhileFavourite',
+            ErrorWhileFavouriteCommentMessage: '@SpeechesMessage.ErrorWhileFavouriteComment',
+            ErrorWhileAddingCommentMessage: '@SpeechesMessage.ErrorWhileAddingComment',
+            ErrorWhileAddingMindMessage: '@SpeechesMessage.ErrorWhileAddingMind',
+            ErrorWhileChangingConnectionMessage: '@UsersMessage.ErrorWhileChangingConnection',
+            ConnectionWasCreatedMessage: '@UsersMessage.ConnectionWasCreated',
+            ConnectionWasRemovedMessage: '@UsersMessage.ConnectionWasRemoved',
+            ErrorWhilePublishSpeechMessage: '@SpeechesMessage.ErrorWhilePublishSpeech',
+            SpeechWasPublishedMessage: '@SpeechesMessage.SpeechWasPublished'
         });
 
 	</script>
