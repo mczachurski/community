@@ -118,28 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ErrorWhileAddingComment" xml:space="preserve">
-    <value>Upppss... An error occurred while adding comment. Please try again.</value>
+    <value>Oops... An error occurred while adding comment. Please try again.</value>
   </data>
   <data name="ErrorWhileAddingMind" xml:space="preserve">
-    <value>Upppss... An error occurred while adding mind. Please try again.</value>
+    <value>Oops... An error occurred while adding mind. Please try again.</value>
   </data>
   <data name="ErrorWhileBubbling" xml:space="preserve">
-    <value>Upppss... An error occurred while bubbling. Please try again.</value>
+    <value>Oops... An error occurred while bubbling. Please try again.</value>
   </data>
   <data name="ErrorWhileDeletingMessage" xml:space="preserve">
-    <value>Upppss... An error occurred while delete message. Please try again.</value>
+    <value>Oops... An error occurred while deleting message. Please try again.</value>
   </data>
   <data name="ErrorWhileFavourite" xml:space="preserve">
-    <value>Upppss... An error occurred while favourite message. Please try again.</value>
+    <value>Oops... An error occurred while favourite message. Please try again.</value>
   </data>
   <data name="ErrorWhileFavouriteComment" xml:space="preserve">
-    <value>Upppss... An error occurred while favourite comment. Please try again.</value>
+    <value>Oops... An error occurred while favourite comment. Please try again.</value>
   </data>
   <data name="ErrorWhilePublishSpeech" xml:space="preserve">
-    <value>Upppss... An error occurred while publish speech. Please try again.</value>
+    <value>Oops... An error occurred while publishing speech. Please try again.</value>
   </data>
   <data name="ErrorWhileSendingTransmit" xml:space="preserve">
-    <value>Upppss... An error occurred while send transmit. Please try again.</value>
+    <value>Oops... An error occurred while sending transmit. Please try again.</value>
   </data>
   <data name="MessageWasRemoved" xml:space="preserve">
     <value>Message was removed.</value>

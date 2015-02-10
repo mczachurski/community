@@ -61,7 +61,7 @@ namespace SunLine.Community.Resources.Titles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upppss... An error occurred while request. Please try again..
+        ///   Looks up a localized string similar to Oops... An error occurred while request. Please try again..
         /// </summary>
         public static string ErrorWhileRequest {
             get {

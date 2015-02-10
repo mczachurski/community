@@ -70,7 +70,7 @@ namespace SunLine.Community.Resources.Titles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You starting observe the user..
+        ///   Looks up a localized string similar to You are starting to observe the user..
         /// </summary>
         public static string ConnectionWasCreated {
             get {
@@ -79,7 +79,7 @@ namespace SunLine.Community.Resources.Titles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You stopped observe the user..
+        ///   Looks up a localized string similar to You&apos;ve stopped observing the user..
         /// </summary>
         public static string ConnectionWasRemoved {
             get {
@@ -97,7 +97,7 @@ namespace SunLine.Community.Resources.Titles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upppss... An error occurred while change connection. Please try again..
+        ///   Looks up a localized string similar to Oops... An error occurred while changing connection. Please try again..
         /// </summary>
         public static string ErrorWhileChangingConnection {
             get {
@@ -106,7 +106,7 @@ namespace SunLine.Community.Resources.Titles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upppss... An error occurred while saving categories. Please try again..
+        ///   Looks up a localized string similar to Oops... An error occurred while saving categories. Please try again..
         /// </summary>
         public static string ErrorWhileSavingCategories {
             get {
@@ -115,7 +115,7 @@ namespace SunLine.Community.Resources.Titles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upppss... An error occurred while saving cover. Please try again..
+        ///   Looks up a localized string similar to Oops... An error occurred while saving cover. Please try again..
         /// </summary>
         public static string ErrorWhileSavingCover {
             get {
@@ -124,7 +124,7 @@ namespace SunLine.Community.Resources.Titles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upppss... An error occurred while saving profile. Please try again..
+        ///   Looks up a localized string similar to Oops... An error occurred while saving profile. Please try again..
         /// </summary>
         public static string ErrorWhileSavingProfile {
             get {

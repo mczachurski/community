@@ -61,7 +61,7 @@ namespace SunLine.Community.Resources.Titles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upppss... An error occurred while adding comment. Please try again..
+        ///   Looks up a localized string similar to Oops... An error occurred while adding comment. Please try again..
         /// </summary>
         public static string ErrorWhileAddingComment {
             get {
@@ -70,7 +70,7 @@ namespace SunLine.Community.Resources.Titles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upppss... An error occurred while adding mind. Please try again..
+        ///   Looks up a localized string similar to Oops... An error occurred while adding mind. Please try again..
         /// </summary>
         public static string ErrorWhileAddingMind {
             get {
@@ -79,7 +79,7 @@ namespace SunLine.Community.Resources.Titles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upppss... An error occurred while bubbling. Please try again..
+        ///   Looks up a localized string similar to Oops... An error occurred while bubbling. Please try again..
         /// </summary>
         public static string ErrorWhileBubbling {
             get {
@@ -88,7 +88,7 @@ namespace SunLine.Community.Resources.Titles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upppss... An error occurred while delete message. Please try again..
+        ///   Looks up a localized string similar to Oops... An error occurred while deleting message. Please try again..
         /// </summary>
         public static string ErrorWhileDeletingMessage {
             get {
@@ -97,7 +97,7 @@ namespace SunLine.Community.Resources.Titles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upppss... An error occurred while favourite message. Please try again..
+        ///   Looks up a localized string similar to Oops... An error occurred while favourite message. Please try again..
         /// </summary>
         public static string ErrorWhileFavourite {
             get {
@@ -106,7 +106,7 @@ namespace SunLine.Community.Resources.Titles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upppss... An error occurred while favourite comment. Please try again..
+        ///   Looks up a localized string similar to Oops... An error occurred while favourite comment. Please try again..
         /// </summary>
         public static string ErrorWhileFavouriteComment {
             get {
@@ -115,7 +115,7 @@ namespace SunLine.Community.Resources.Titles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upppss... An error occurred while publish speech. Please try again..
+        ///   Looks up a localized string similar to Oops... An error occurred while publishing speech. Please try again..
         /// </summary>
         public static string ErrorWhilePublishSpeech {
             get {
@@ -124,7 +124,7 @@ namespace SunLine.Community.Resources.Titles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upppss... An error occurred while send transmit. Please try again..
+        ///   Looks up a localized string similar to Oops... An error occurred while sending transmit. Please try again..
         /// </summary>
         public static string ErrorWhileSendingTransmit {
             get {
