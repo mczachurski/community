@@ -10,7 +10,6 @@ namespace SunLine.Community.Entities.Dict
         public virtual string Name { get; set; }
 
         [Required]
-        [DefaultValue(0)]
         public virtual int FavouriteLevel { get; set; }
     }
 }

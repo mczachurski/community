@@ -29,15 +29,12 @@ namespace SunLine.Community.Entities.Core
         public virtual IList<UserMessage> TransmittedUserMessages { get; set; }
 
         [Required]
-        [DefaultValue(false)]
         public virtual bool HaveMention { get; set; }
 
         [Required]
-        [DefaultValue(false)]
         public virtual bool HaveMentionInComments { get; set; }
 
         [Required]
-        [DefaultValue(false)]
         public virtual bool WasTransmitted { get; set; }
 
         [Index]
@@ -45,7 +42,6 @@ namespace SunLine.Community.Entities.Core
         public virtual DateTime SortingDate { get; set; }
 
         [Required]
-        [DefaultValue(false)]
         public virtual bool UpdateSortingDateOnNewComment { get; set; }
     }
 }

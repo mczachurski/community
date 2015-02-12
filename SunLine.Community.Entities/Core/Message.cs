@@ -32,7 +32,6 @@ namespace SunLine.Community.Entities.Core
 
         public virtual IList<File> Files { get; set; }
 
-        [DefaultValue(0)]
         public virtual int AmountOfFavourites { get; set; }
 
         [Required]
@@ -45,7 +44,6 @@ namespace SunLine.Community.Entities.Core
         public virtual IList<MessageUrl> MessageUrls { get; set; }
 
         [Required]
-        [DefaultValue(0)]
         public virtual int AmountOfTransmitted { get; set; }
 
         public virtual Message CommentedMessage { get; set; }
@@ -59,13 +57,11 @@ namespace SunLine.Community.Entities.Core
         public virtual IList<MessageFavourite> FavouritesFromUsers { get; set; }
 
         [Required]
-        [DefaultValue(0)]
         public virtual int AmountOfQuotes { get; set; }
 
         [Index]
         public override DateTime CreationDate { get; set; }
 
-        [DefaultValue(0)]
         public virtual int AmountOfComments { get; set; }
     }
 }
