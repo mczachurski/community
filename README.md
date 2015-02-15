@@ -4,6 +4,8 @@ Community is the system very similar to Twitter. His main feature is sharing sho
 
 **Planned start date: September 1, 2015.**
 
+![Site](https://raw.githubusercontent.com/mczachurski/community-web/develop/Documents/screenshot01.png)
+
 ## The application built by the community
 The basic premise of the project is that the service will be built by the community. For this reason it is very important for us to get immediate feedback from users. At this time, it is possible by:
 
