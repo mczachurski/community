@@ -20,10 +20,14 @@ The following describes the basic features of the Community:
 1. Sharing short statuses.
 
   User can add short messages called *Minds*. There are messages up to 200 characters (with possibility to include pictures). Messages are shown to people who are observing the user.
+  
+  ![Minds](https://raw.githubusercontent.com/mczachurski/community-web/develop/Documents/screenshot02.png)
 
 2. Creating longer texts.
 
   User can add articles called *Speeches*. They can be created at *markdown* format and operates like normal short *Minds*. Thus users can transmit, quote, comment them etc.
+  
+  ![Speech](https://raw.githubusercontent.com/mczachurski/community-web/develop/Documents/screenshot03.png)
 
 3. Transmit.
 
@@ -33,9 +37,13 @@ The following describes the basic features of the Community:
 
   User can add to all messages in the system his own comments. Comments work totally different than in Twitter. They are similar to comments in Google+. All messages are displayed directly under the original message.
   
+  ![Speech](https://raw.githubusercontent.com/mczachurski/community-web/develop/Documents/screenshot04.png)
+  
 5. Quotes.
 
   All messages in the system can be quoted. Quotes are similar like in Twitter but user can’t modify original message. Additionally user has 200 chars to write his message (amount of chars from original message do not take into account).
+  
+  ![Speech](https://raw.githubusercontent.com/mczachurski/community-web/develop/Documents/screenshot05.png)
   
 6. Favorites.
 
