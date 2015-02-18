@@ -21,7 +21,9 @@ namespace SunLine.Community.Services.Azure
         {
             CloudStorageAccount storageAccount = GetCloudStorageAccount();
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-            CloudBlobContainer container = blobClient.GetContainerReference(userName);
+
+            string lowerCaseUserName = userName.ToLower();
+            CloudBlobContainer container = blobClient.GetContainerReference(lowerCaseUserName);
 
             if (!container.Exists())
             {
@@ -29,7 +31,8 @@ namespace SunLine.Community.Services.Azure
                 container.SetPermissions(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob }); 
             }
 
-            CloudBlockBlob blockBlob = container.GetBlockBlobReference(filePath);
+            string lowerCaseFilePath = filePath.ToLower();
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference(lowerCaseFilePath);
             blockBlob.UploadFromStream(fileStream);
         }
 
@@ -43,12 +46,16 @@ namespace SunLine.Community.Services.Azure
 
         public string GetUrlToFile(string userName, string filePath)
         {
-            return string.Format("{0}/{1}/{2}", AzuerStorageHostAddress, userName, filePath);
+            string lowerCaseUserName = userName.ToLower();
+            string lowerCaseFilePath = filePath.ToLower();
+            return string.Format("{0}/{1}/{2}", AzuerStorageHostAddress, lowerCaseUserName, lowerCaseFilePath);
         }
 
         public string GetUrlToFileThumbnail(string userName, string filePath)
         {
-            return string.Format("{0}/{1}/{2}/{3}", AzuerStorageHostAddress, userName, ThumbnailsDirectory, filePath);
+            string lowerCaseUserName = userName.ToLower();
+            string lowerCaseFilePath = filePath.ToLower();
+            return string.Format("{0}/{1}/{2}/{3}", AzuerStorageHostAddress, lowerCaseUserName, ThumbnailsDirectory, lowerCaseFilePath);
         }
     }
 }
